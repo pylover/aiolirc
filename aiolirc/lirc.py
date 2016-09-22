@@ -12,7 +12,7 @@ class LIRCClient(asyncio.Lock):
         self.lircrc_file = lircrc_file
         self.lircrc_prog = lircrc_prog
         self.check_interval = check_interval
-        self._stack = asyncio.Queue(maxsize=max_stack_size)
+        self._stack = asyncio.Queue(maxsize=10)
         self._last_code = None
         asyncio.Lock.__init__(self, loop=loop)
 
@@ -22,9 +22,9 @@ class LIRCClient(asyncio.Lock):
         self.lirc_socket_id = lirc.init(self.lircrc_prog, config_filename=self.lircrc_file, blocking=False)
         return self
 
-        async def __aexit__(self, exc_type, exc_val, exc_tb):
-            lirc.deinit()
-            await super().__aexit__(exc_type, exc_val, exc_tb)
+    async def __aexit__(self, exc_type, exc_val, exc_tb):
+        lirc.deinit()
+        await super().__aexit__(exc_type, exc_val, exc_tb)
 
     async def _next_raw(self):
         if self._stack.empty():
