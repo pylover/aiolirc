@@ -17,7 +17,7 @@ class Dispatcher(LIRCClient):
         self._current_command_repetition = 0
 
     @classmethod
-    def listen(cls, func, *cmd, repeat=1):
+    def listen(cls, func, cmd, *, repeat=1):
         if cmd not in cls._commands:
             cls._commands[cmd] = {}
 
@@ -27,7 +27,7 @@ class Dispatcher(LIRCClient):
         cls._commands[cmd][repeat].append(func)
 
     @classmethod
-    def remove(cls, func, *cmd, repeat=1):
+    def remove(cls, func, cmd, *, repeat=1):
         cls._commands[cmd][repeat].remove(func)
 
     async def check_for_event(self):
@@ -49,10 +49,10 @@ class Dispatcher(LIRCClient):
         return max(command.keys()) > self._current_command_repetition
 
     @classmethod
-    def listen_for(cls, *cmd, **kw):
+    def listen_for(cls, cmd, **kw):
 
         def _decorator(func):
-            cls.listen(func, *cmd, **kw)
+            cls.listen(func, cmd, **kw)
             return func
 
         return _decorator
@@ -67,7 +67,6 @@ class Dispatcher(LIRCClient):
             return
 
         if cmd not in self._commands:
-            print(cmd, type(cmd))
             warnings.warn('Unknown comamnd: %s' % cmd)
             self.reset_capturing_state()
             return
@@ -84,7 +83,15 @@ class Dispatcher(LIRCClient):
             # reset counter
             self._current_command_repetition = 0
 
-    async def capture(self):
+    async def capture(self, exit_on_eof=False):
         async with self:
-            async for cmd in self:
-                await self.feed_command(cmd)
+            async for command in self:
+                if command is None:
+                    await self.feed_command(None)
+                    # Just for unittests
+                    if exit_on_eof:
+                        break
+                    else:
+                        continue
+
+                await self.feed_command(command)

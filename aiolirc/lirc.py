@@ -7,43 +7,41 @@ from aiolirc.compat import aiter_compat
 
 
 class LIRCClient(asyncio.Lock):
-    _last_code = None
-    emulator = None
-    lircrc_prog = None
-    lircrc_file = None
-    check_interval = .05
 
-    def __init__(self, lircrc_file, lircrc_prog, *, loop=None, emulator=None, check_interval=.05):
+    def __init__(self, lircrc_file, lircrc_prog, *, loop=None, check_interval=.05, max_stack_size=10):
         self.lircrc_file = lircrc_file
         self.lircrc_prog = lircrc_prog
-        self.emulator = emulator
         self.check_interval = check_interval
+        self._stack = asyncio.Queue(maxsize=max_stack_size)
+        self._last_code = None
         asyncio.Lock.__init__(self, loop=loop)
 
     # Asynchronous Context Manager
     async def __aenter__(self):
         await super().__aenter__()
-        if self.emulator:
-            self._next_raw = self.emulator
-        else:
-            self.lirc_socket_id = lirc.init(self.lircrc_prog, config_filename=self.lircrc_file, blocking=False)
-            await asyncio.sleep(.1)
+        self.lirc_socket_id = lirc.init(self.lircrc_prog, config_filename=self.lircrc_file, blocking=False)
         return self
 
-    async def __aexit__(self, exc_type, exc_val, exc_tb):
-        print('Cleanup')
-        if not self.emulator:
+        async def __aexit__(self, exc_type, exc_val, exc_tb):
             lirc.deinit()
-        await super().__aexit__(exc_type, exc_val, exc_tb)
+            await super().__aexit__(exc_type, exc_val, exc_tb)
+
+    async def _next_raw(self):
+        if self._stack.empty():
+            codes = lirc.nextcode()
+            try:
+                for code in codes:
+                    self._stack.put_nowait(code)
+            except asyncio.QueueFull:
+                # Just ignoring future commands, until the queue freed-up.
+                pass
+
+        try:
+            return self._stack.get_nowait()
+        except asyncio.QueueEmpty:
+            return None
 
     # Asynchronous Iterator
-    @staticmethod
-    async def _next_raw():
-        code = lirc.nextcode()
-        if code:
-            return tuple(code)
-        return None
-
     @aiter_compat
     def __aiter__(self):
         return self

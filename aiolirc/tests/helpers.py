@@ -2,6 +2,8 @@ import asyncio
 import unittest
 from unittest.case import _Outcome
 
+from aiolirc.dispatcher import Dispatcher
+
 
 class AioTestCase(unittest.TestCase):
 
@@ -9,19 +11,6 @@ class AioTestCase(unittest.TestCase):
     def __init__(self, *args, loop=None):
         self.loop = loop or asyncio.get_event_loop()
         super(AioTestCase, self).__init__(*args)
-    #
-    # def coroutine_function_decorator(self, func):
-    #     def wrapper(*args, **kw):
-    #         return self.loop.run_until_complete(func(*args, **kw))
-    #     return wrapper
-    #
-    # def __getattribute__(self, item):
-    #     attr = object.__getattribute__(self, item)
-    #     if asyncio.iscoroutinefunction(attr):
-    #         if item not in self._function_cache:
-    #             self._function_cache[item] = self.coroutine_function_decorator(attr)
-    #         return self._function_cache[item]
-    #     return attr
 
     def _run_method(self, func, *args, **kwargs):
         if asyncio.iscoroutinefunction(func):
@@ -99,4 +88,33 @@ class AioTestCase(unittest.TestCase):
             self._outcome = None
 
 
+class EmulatedDispatcher(Dispatcher):
+
+    async def __aenter__(self):
+        return self
+
+    async def __aexit__(self, exc_type, exc_val, exc_tb):
+        pass
+
+    def __init__(self):
+        super().__init__(None, None, max_stack_size=25)
+
+    async def fill(self):
+        for i in range(10):
+            await self._stack.put('amp power')
+
+        for i in range(5):
+            await self._stack.put('amp source')
+
+        for i in range(5):
+            await self._stack.put('off')
+
+        for i in range(5):
+            await self._stack.put('amp source')
+
+    async def _next_raw(self):
+        try:
+            return self._stack.get_nowait()
+        except asyncio.QueueEmpty:
+            return None
 
