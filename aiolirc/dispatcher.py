@@ -81,7 +81,7 @@ class Dispatcher(LIRCClient):
 
         if not await self.check_for_event():
             # reset counter
-            self._current_command_repetition = 0
+            self.reset_capturing_state()
 
     async def capture(self, exit_on_eof=False):
         async with self:
