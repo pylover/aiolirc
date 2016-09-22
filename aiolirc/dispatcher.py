@@ -67,7 +67,7 @@ class Dispatcher(LIRCClient):
             return
 
         if cmd not in self._commands:
-            warnings.warn('Unknown comamnd: %s' % cmd)
+            warnings.warn('Unknown command: %s' % cmd)
             self.reset_capturing_state()
             return
 
@@ -84,14 +84,9 @@ class Dispatcher(LIRCClient):
             self.reset_capturing_state()
 
     async def capture(self, exit_on_eof=False):
-        async with self:
-            async for command in self:
-                if command is None:
-                    await self.feed_command(None)
-                    # Just for unittests
-                    if exit_on_eof:
-                        break
-                    else:
-                        continue
-
-                await self.feed_command(command)
+        async for command in self:
+            await self.feed_command(command)
+            if command is None:
+                # Just for unittests
+                if exit_on_eof:
+                    break

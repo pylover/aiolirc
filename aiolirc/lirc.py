@@ -8,11 +8,12 @@ from aiolirc.compat import aiter_compat
 
 class LIRCClient(asyncio.Lock):
 
-    def __init__(self, lircrc_file, lircrc_prog, *, loop=None, check_interval=.05, max_stack_size=10):
+    def __init__(self, lircrc_file, lircrc_prog, *, loop=None, check_interval=.05, max_stack_size=10, empty_skip=5):
         self.lircrc_file = lircrc_file
         self.lircrc_prog = lircrc_prog
         self.check_interval = check_interval
-        self._stack = asyncio.Queue(maxsize=10)
+        self.empty_skip = empty_skip
+        self._stack = asyncio.Queue(maxsize=max_stack_size)
         self._last_code = None
         asyncio.Lock.__init__(self, loop=loop)
 
@@ -56,7 +57,7 @@ class LIRCClient(asyncio.Lock):
                 if self._last_code is not None:
                     empty += 1
 
-                if empty < 5:
+                if empty <= self.empty_skip:
                     await asyncio.sleep(self.check_interval)
                     continue
 

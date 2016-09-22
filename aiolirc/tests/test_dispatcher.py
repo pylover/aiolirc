@@ -26,7 +26,8 @@ class TestDispatcher(AioTestCase):
 
         try:
             await dispatcher.fill()
-            await dispatcher.capture(exit_on_eof=True)
+            async with dispatcher:
+                await dispatcher.capture(exit_on_eof=True)
         except asyncio.QueueEmpty:
             pass
 
