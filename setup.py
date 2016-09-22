@@ -4,9 +4,7 @@ from setuptools import setup, find_packages
 
 
 dependencies = [
-    'pymlconf',
-    'python-lirc',
-    'appdirs'
+    'python-lirc'
 ]
 
 
@@ -20,6 +18,7 @@ setup(
     version=package_version,
     install_requires=dependencies,
     packages=find_packages(),
-    include_package_data=True,
-    # exclude_package_data=None
+    classifiers=[
+        'Programming Language :: Python :: 3.5'
+    ]
 )

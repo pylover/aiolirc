@@ -1,6 +1,5 @@
 
 import asyncio
-from os.path import join, abspath, dirname
 
 import lirc
 
@@ -42,7 +41,7 @@ class LIRCClient(asyncio.Lock):
     async def _next_raw():
         code = lirc.nextcode()
         if code:
-            return code
+            return tuple(code)
         return None
 
     @aiter_compat

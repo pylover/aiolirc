@@ -3,7 +3,7 @@ import asyncio
 from os.path import join, abspath, dirname
 
 from aiolirc.tests.helpers import AioTestCase
-from aiolirc.lirc_client import LIRCClient
+from aiolirc.lirc import LIRCClient
 
 
 class TestLIRCClient(AioTestCase):
@@ -16,28 +16,25 @@ class TestLIRCClient(AioTestCase):
         emulator_stack = asyncio.Queue()
 
         for i in range(10):
-            await emulator_stack.put(['amp', 'power'])
+            await emulator_stack.put(('amp', 'power'))
 
         for i in range(5):
-            await emulator_stack.put(['amp', 'source'])
+            await emulator_stack.put(('amp', 'source'))
 
         for i in range(50):
             await emulator_stack.put(None)
 
         for i in range(5):
-            await emulator_stack.put(['amp', 'source'])
+            await emulator_stack.put(('amp', 'source'))
 
-        async def emulator():
-            return await emulator_stack.get()
-
-        async with LIRCClient(None, None, emulator=emulator) as client:
+        async with LIRCClient(None, None, emulator=emulator_stack.get) as client:
             for i in range(10):
-                self.assertEqual(await client.__anext__(), ['amp', 'power'])
+                self.assertEqual(await client.__anext__(), ('amp', 'power'))
 
             for i in range(5):
-                self.assertEqual(await client.__anext__(), ['amp', 'source'])
+                self.assertEqual(await client.__anext__(), ('amp', 'source'))
 
             self.assertEqual(await client.__anext__(), None)
 
             for i in range(5):
-                self.assertEqual(await client.__anext__(), ['amp', 'source'])
+                self.assertEqual(await client.__anext__(), ('amp', 'source'))
