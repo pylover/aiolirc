@@ -67,6 +67,7 @@ class Dispatcher(LIRCClient):
             return
 
         if cmd not in self._commands:
+            print(cmd, type(cmd))
             warnings.warn('Unknown comamnd: %s' % cmd)
             self.reset_capturing_state()
             return
