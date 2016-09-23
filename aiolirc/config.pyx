@@ -19,7 +19,7 @@ cdef class LIRCConfig:
         if self._c_lirc_config is not NULL:
             lirc_freeconfig(self._c_lirc_config)
 
-    def add_config_file(self, config_filename):
+    def add_config_file(LIRCConfig self not None, config_filename):
         if config_filename is not None:
             lirc_readconfig(
                 config_filename, &self._c_lirc_config, NULL)
@@ -30,7 +30,7 @@ cdef class LIRCConfig:
         if self._c_lirc_config is NULL:
             raise LIRCLoadConfigError('Could not load the config file (%s)' % config_filename)
 
-    cdef unicode translate(self, char * code):
+    cdef unicode translate(LIRCConfig self, char * code):
         """
         Translate the (byte) string associated with the code in the lircrc config file
         """

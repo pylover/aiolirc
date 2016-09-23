@@ -106,7 +106,7 @@ cdef class LIRCClient(object):
             if code == NULL:
                 return None
             else:
-                return lircrc_config.translate(code)
+                return LIRCConfig.translate(lircrc_config, code)
         except TranslateDone:
             return None
         finally:
