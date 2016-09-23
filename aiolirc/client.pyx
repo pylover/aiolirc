@@ -8,7 +8,7 @@ from aiolirc cimport c_lirc_client
 from aiolirc.compat import aiter_compat
 from aiolirc.constants import ENCODING
 from aiolirc.exceptions import LIRCInitError, LIRCAbuseError, LIRCDeinitError, TranslateDone, LIRCNextCodeError
-from aiolirc.config import LIRCConfig
+from aiolirc cimport config
 
 
 cdef object initialized = <bint>0
@@ -47,7 +47,7 @@ cdef class LIRCClient(object):
         if lircrc_config is not None:
             lircrc_config.add_config_file(b_lircrc_filename)
         else:
-            lircrc_config = LIRCConfig(b_lircrc_filename)
+            lircrc_config = config.LIRCConfig(b_lircrc_filename)
 
     cdef void update_blocking(LIRCClient self):
         fcntl.fcntl(self._lirc_socket, fcntl.F_SETOWN, unistd.getpid())
@@ -99,7 +99,7 @@ cdef class LIRCClient(object):
             if code == NULL:
                 return None
             else:
-                return LIRCConfig.translate(lircrc_config, code)
+                return lircrc_config.translate(code)
         except TranslateDone:
             return None
         finally:
