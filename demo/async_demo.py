@@ -5,7 +5,7 @@ from aiolirc.client import LIRCClient
 
 async def main():
     print('MAIN')
-    async with LIRCClient('MyRPI') as c:
+    async with LIRCClient('MyRPI', check_interval=.1) as c:
         async for cmd in c:
             print(cmd)
 
