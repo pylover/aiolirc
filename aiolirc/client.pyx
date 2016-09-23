@@ -19,8 +19,8 @@ cdef dict _locks = {}  # TODO: lock
 
 cdef class LIRCClient(object):
 
-    def __init__(self, lircrc_prog, *, lircrc_file='~/.config/lircrc', loop=None, check_interval=.05, max_stack_size=10,
-                 empty_skip=5, verbose=False, blocking=False):
+    def __init__(self, lircrc_prog, *, lircrc_file='~/.config/lircrc',
+                 loop=None, check_interval=.05, verbose=False, blocking=False):
         self.lircrc_file = lircrc_file
         self.lircrc_prog = lircrc_prog
         self.check_interval = check_interval
