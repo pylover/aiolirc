@@ -12,7 +12,7 @@ from aiolirc cimport config
 
 
 cdef object initialized = <bint>0
-cdef object lircrc_config = None
+cdef config.LIRCConfig lircrc_config = None
 
 cdef dict _locks = {}  # TODO: lock
 
