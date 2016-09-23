@@ -10,7 +10,6 @@ cdef int STRING_BUFFER_LEN = 256
 
 
 cdef class LIRCConfig:
-    cdef lirc_config * _c_lirc_config
 
     def __cinit__(self, config_filename):
         self.add_config_file(config_filename)
