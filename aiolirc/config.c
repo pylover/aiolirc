@@ -938,7 +938,7 @@ static void __pyx_pf_7aiolirc_6config_10LIRCConfig_2__dealloc__(struct __pyx_obj
  *         if self._c_lirc_config is not NULL:
  *             lirc_freeconfig(self._c_lirc_config)             # <<<<<<<<<<<<<<
  * 
- *     def add_config_file(self, config_filename):
+ *     def add_config_file(LIRCConfig self not None, config_filename):
  */
     lirc_freeconfig(__pyx_v_self->_c_lirc_config);
 
@@ -966,7 +966,7 @@ static void __pyx_pf_7aiolirc_6config_10LIRCConfig_2__dealloc__(struct __pyx_obj
 /* "aiolirc/config.pyx":22
  *             lirc_freeconfig(self._c_lirc_config)
  * 
- *     def add_config_file(self, config_filename):             # <<<<<<<<<<<<<<
+ *     def add_config_file(LIRCConfig self not None, config_filename):             # <<<<<<<<<<<<<<
  *         if config_filename is not None:
  *             lirc_readconfig(
  */
@@ -977,9 +977,16 @@ static PyObject *__pyx_pw_7aiolirc_6config_10LIRCConfig_5add_config_file(PyObjec
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("add_config_file (wrapper)", 0);
+  if (unlikely(((PyObject *)__pyx_v_self) == Py_None)) {
+    PyErr_Format(PyExc_TypeError, "Argument '%.200s' must not be None", "self"); __PYX_ERR(0, 22, __pyx_L1_error)
+  }
   __pyx_r = __pyx_pf_7aiolirc_6config_10LIRCConfig_4add_config_file(((struct __pyx_obj_7aiolirc_6config_LIRCConfig *)__pyx_v_self), ((PyObject *)__pyx_v_config_filename));
 
   /* function exit code */
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __pyx_r = NULL;
+  __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
@@ -999,7 +1006,7 @@ static PyObject *__pyx_pf_7aiolirc_6config_10LIRCConfig_4add_config_file(struct 
 
   /* "aiolirc/config.pyx":23
  * 
- *     def add_config_file(self, config_filename):
+ *     def add_config_file(LIRCConfig self not None, config_filename):
  *         if config_filename is not None:             # <<<<<<<<<<<<<<
  *             lirc_readconfig(
  *                 config_filename, &self._c_lirc_config, NULL)
@@ -1018,7 +1025,7 @@ static PyObject *__pyx_pf_7aiolirc_6config_10LIRCConfig_4add_config_file(struct 
     __pyx_t_3 = __Pyx_PyObject_AsString(__pyx_v_config_filename); if (unlikely((!__pyx_t_3) && PyErr_Occurred())) __PYX_ERR(0, 25, __pyx_L1_error)
 
     /* "aiolirc/config.pyx":24
- *     def add_config_file(self, config_filename):
+ *     def add_config_file(LIRCConfig self not None, config_filename):
  *         if config_filename is not None:
  *             lirc_readconfig(             # <<<<<<<<<<<<<<
  *                 config_filename, &self._c_lirc_config, NULL)
@@ -1028,7 +1035,7 @@ static PyObject *__pyx_pf_7aiolirc_6config_10LIRCConfig_4add_config_file(struct 
 
     /* "aiolirc/config.pyx":23
  * 
- *     def add_config_file(self, config_filename):
+ *     def add_config_file(LIRCConfig self not None, config_filename):
  *         if config_filename is not None:             # <<<<<<<<<<<<<<
  *             lirc_readconfig(
  *                 config_filename, &self._c_lirc_config, NULL)
@@ -1071,7 +1078,7 @@ static PyObject *__pyx_pf_7aiolirc_6config_10LIRCConfig_4add_config_file(struct 
  *         if self._c_lirc_config is NULL:
  *             raise LIRCLoadConfigError('Could not load the config file (%s)' % config_filename)             # <<<<<<<<<<<<<<
  * 
- *     cdef unicode translate(self, char * code):
+ *     cdef unicode translate(LIRCConfig self, char * code):
  */
     __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_LIRCLoadConfigError); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 31, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
@@ -1119,7 +1126,7 @@ static PyObject *__pyx_pf_7aiolirc_6config_10LIRCConfig_4add_config_file(struct 
   /* "aiolirc/config.pyx":22
  *             lirc_freeconfig(self._c_lirc_config)
  * 
- *     def add_config_file(self, config_filename):             # <<<<<<<<<<<<<<
+ *     def add_config_file(LIRCConfig self not None, config_filename):             # <<<<<<<<<<<<<<
  *         if config_filename is not None:
  *             lirc_readconfig(
  */
@@ -1144,7 +1151,7 @@ static PyObject *__pyx_pf_7aiolirc_6config_10LIRCConfig_4add_config_file(struct 
 /* "aiolirc/config.pyx":33
  *             raise LIRCLoadConfigError('Could not load the config file (%s)' % config_filename)
  * 
- *     cdef unicode translate(self, char * code):             # <<<<<<<<<<<<<<
+ *     cdef unicode translate(LIRCConfig self, char * code):             # <<<<<<<<<<<<<<
  *         """
  *         Translate the (byte) string associated with the code in the lircrc config file
  */
@@ -1393,7 +1400,7 @@ static PyObject *__pyx_f_7aiolirc_6config_10LIRCConfig_translate(struct __pyx_ob
   /* "aiolirc/config.pyx":33
  *             raise LIRCLoadConfigError('Could not load the config file (%s)' % config_filename)
  * 
- *     cdef unicode translate(self, char * code):             # <<<<<<<<<<<<<<
+ *     cdef unicode translate(LIRCConfig self, char * code):             # <<<<<<<<<<<<<<
  *         """
  *         Translate the (byte) string associated with the code in the lircrc config file
  */

@@ -512,7 +512,7 @@ struct __pyx_obj_7aiolirc_6client___pyx_scope_struct____aenter__;
 struct __pyx_obj_7aiolirc_6client___pyx_scope_struct_1___aexit__;
 struct __pyx_obj_7aiolirc_6client___pyx_scope_struct_2___anext__;
 
-/* "aiolirc/client.pyx":19
+/* "aiolirc/client.pyx":20
  * 
  * 
  * cdef class LIRCClient(object):             # <<<<<<<<<<<<<<
@@ -532,7 +532,7 @@ struct __pyx_obj_7aiolirc_6client_LIRCClient {
 };
 
 
-/* "aiolirc/client.pyx":130
+/* "aiolirc/client.pyx":131
  * 
  *     # Asynchronous Context Manager
  *     async def __aenter__(LIRCClient self not None):             # <<<<<<<<<<<<<<
@@ -545,7 +545,7 @@ struct __pyx_obj_7aiolirc_6client___pyx_scope_struct____aenter__ {
 };
 
 
-/* "aiolirc/client.pyx":135
+/* "aiolirc/client.pyx":136
  *         return self
  * 
  *     async def __aexit__(LIRCClient self not None, exc_type, exc_val, exc_tb):             # <<<<<<<<<<<<<<
@@ -561,8 +561,8 @@ struct __pyx_obj_7aiolirc_6client___pyx_scope_struct_1___aexit__ {
 };
 
 
-/* "aiolirc/client.pyx":143
- *         return self
+/* "aiolirc/client.pyx":144
+ *         return aiter_compat(self)
  * 
  *     async def __anext__(LIRCClient self not None):             # <<<<<<<<<<<<<<
  *         while True:
@@ -576,7 +576,7 @@ struct __pyx_obj_7aiolirc_6client___pyx_scope_struct_2___anext__ {
 
 
 
-/* "aiolirc/client.pyx":19
+/* "aiolirc/client.pyx":20
  * 
  * 
  * cdef class LIRCClient(object):             # <<<<<<<<<<<<<<
@@ -983,6 +983,7 @@ static const char __pyx_k_UserWarning[] = "UserWarning";
 static const char __pyx_k_ensure_init[] = "_ensure_init";
 static const char __pyx_k_lircrc_file[] = "lircrc_file";
 static const char __pyx_k_lircrc_prog[] = "lircrc_prog";
+static const char __pyx_k_aiter_compat[] = "aiter_compat";
 static const char __pyx_k_ensure_async[] = "_ensure_async";
 static const char __pyx_k_LIRCInitError[] = "LIRCInitError";
 static const char __pyx_k_TranslateDone[] = "TranslateDone";
@@ -990,6 +991,7 @@ static const char __pyx_k_asyncio_tasks[] = "asyncio.tasks";
 static const char __pyx_k_config_lircrc[] = "~/.config/lircrc";
 static const char __pyx_k_LIRCAbuseError[] = "LIRCAbuseError";
 static const char __pyx_k_aiolirc_client[] = "aiolirc.client";
+static const char __pyx_k_aiolirc_compat[] = "aiolirc.compat";
 static const char __pyx_k_aiolirc_config[] = "aiolirc.config";
 static const char __pyx_k_check_interval[] = "check_interval";
 static const char __pyx_k_get_event_loop[] = "get_event_loop";
@@ -1003,11 +1005,11 @@ static const char __pyx_k_LIRCClient___anext[] = "LIRCClient.__anext__";
 static const char __pyx_k_aiolirc_exceptions[] = "aiolirc.exceptions";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_LIRCClient___aenter[] = "LIRCClient.__aenter__";
-static const char __pyx_k_s_has_not_been_initialised[] = "%s has not been initialised.";
-static const char __pyx_k_Unable_to_de_initialise_lirc[] = "Unable to de-initialise lirc.";
+static const char __pyx_k_s_has_not_been_initialized[] = "%s has not been initialized.";
+static const char __pyx_k_Unable_to_de_initialize_lirc[] = "Unable to de-initialize lirc.";
 static const char __pyx_k_Cannot_use_Asynchronous_Iterator[] = "Cannot use `Asynchronous Iterator` and `Asynchronous Context Manager` when blocking is True.";
 static const char __pyx_k_There_was_an_error_reading_the_n[] = "There was an error reading the next code.";
-static const char __pyx_k_Unable_to_initialise_lirc_socket[] = "Unable to initialise lirc (socket was -1 from C library).";
+static const char __pyx_k_Unable_to_initialize_lirc_socket[] = "Unable to initialize lirc (socket was -1 from C library).";
 static PyObject *__pyx_kp_s_Cannot_use_Asynchronous_Iterator;
 static PyObject *__pyx_n_s_ENCODING;
 static PyObject *__pyx_n_s_LIRCAbuseError;
@@ -1020,16 +1022,18 @@ static PyObject *__pyx_n_s_LIRCInitError;
 static PyObject *__pyx_n_s_LIRCNextCodeError;
 static PyObject *__pyx_kp_s_There_was_an_error_reading_the_n;
 static PyObject *__pyx_n_s_TranslateDone;
-static PyObject *__pyx_kp_s_Unable_to_de_initialise_lirc;
-static PyObject *__pyx_kp_s_Unable_to_initialise_lirc_socket;
+static PyObject *__pyx_kp_s_Unable_to_de_initialize_lirc;
+static PyObject *__pyx_kp_s_Unable_to_initialize_lirc_socket;
 static PyObject *__pyx_n_s_UserWarning;
 static PyObject *__pyx_n_s_add_config_file;
 static PyObject *__pyx_n_s_aenter;
 static PyObject *__pyx_n_s_aexit;
 static PyObject *__pyx_n_s_aiolirc_client;
+static PyObject *__pyx_n_s_aiolirc_compat;
 static PyObject *__pyx_n_s_aiolirc_config;
 static PyObject *__pyx_n_s_aiolirc_constants;
 static PyObject *__pyx_n_s_aiolirc_exceptions;
+static PyObject *__pyx_n_s_aiter_compat;
 static PyObject *__pyx_n_s_anext;
 static PyObject *__pyx_n_s_args;
 static PyObject *__pyx_n_s_asyncio;
@@ -1056,7 +1060,7 @@ static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_max_stack_size;
 static PyObject *__pyx_n_s_name;
 static PyObject *__pyx_n_s_pyx_vtable;
-static PyObject *__pyx_kp_s_s_has_not_been_initialised;
+static PyObject *__pyx_kp_s_s_has_not_been_initialized;
 static PyObject *__pyx_n_s_send;
 static PyObject *__pyx_n_s_sleep;
 static PyObject *__pyx_n_s_test;
@@ -1103,7 +1107,7 @@ static PyObject *__pyx_tuple__2;
 static PyObject *__pyx_tuple__3;
 static PyObject *__pyx_tuple__4;
 
-/* "aiolirc/client.pyx":28
+/* "aiolirc/client.pyx":29
  * 
  * 
  *     def __init__(self, lircrc_prog, *, lircrc_file='~/.config/lircrc', loop=None, check_interval=.05, max_stack_size=10,             # <<<<<<<<<<<<<<
@@ -1134,7 +1138,7 @@ static int __pyx_pw_7aiolirc_6client_10LIRCClient_1__init__(PyObject *__pyx_v_se
     values[4] = ((PyObject *)__pyx_int_10);
     values[5] = ((PyObject *)__pyx_int_5);
 
-    /* "aiolirc/client.pyx":29
+    /* "aiolirc/client.pyx":30
  * 
  *     def __init__(self, lircrc_prog, *, lircrc_file='~/.config/lircrc', loop=None, check_interval=.05, max_stack_size=10,
  *                  empty_skip=5, verbose=False, blocking=False):             # <<<<<<<<<<<<<<
@@ -1165,7 +1169,7 @@ static int __pyx_pw_7aiolirc_6client_10LIRCClient_1__init__(PyObject *__pyx_v_se
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 28, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 29, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
@@ -1183,7 +1187,7 @@ static int __pyx_pw_7aiolirc_6client_10LIRCClient_1__init__(PyObject *__pyx_v_se
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 28, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 29, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("aiolirc.client.LIRCClient.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -1191,7 +1195,7 @@ static int __pyx_pw_7aiolirc_6client_10LIRCClient_1__init__(PyObject *__pyx_v_se
   __pyx_L4_argument_unpacking_done:;
   __pyx_r = __pyx_pf_7aiolirc_6client_10LIRCClient___init__(((struct __pyx_obj_7aiolirc_6client_LIRCClient *)__pyx_v_self), __pyx_v_lircrc_prog, __pyx_v_lircrc_file, __pyx_v_loop, __pyx_v_check_interval, __pyx_v_max_stack_size, __pyx_v_empty_skip, __pyx_v_verbose, __pyx_v_blocking);
 
-  /* "aiolirc/client.pyx":28
+  /* "aiolirc/client.pyx":29
  * 
  * 
  *     def __init__(self, lircrc_prog, *, lircrc_file='~/.config/lircrc', loop=None, check_interval=.05, max_stack_size=10,             # <<<<<<<<<<<<<<
@@ -1215,14 +1219,14 @@ static int __pyx_pf_7aiolirc_6client_10LIRCClient___init__(struct __pyx_obj_7aio
   PyObject *__pyx_t_6 = NULL;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "aiolirc/client.pyx":30
+  /* "aiolirc/client.pyx":31
  *     def __init__(self, lircrc_prog, *, lircrc_file='~/.config/lircrc', loop=None, check_interval=.05, max_stack_size=10,
  *                  empty_skip=5, verbose=False, blocking=False):
  *         self.lircrc_file = lircrc_file             # <<<<<<<<<<<<<<
  *         self.lircrc_prog = lircrc_prog
  *         self.check_interval = check_interval
  */
-  if (!(likely(PyUnicode_CheckExact(__pyx_v_lircrc_file))||((__pyx_v_lircrc_file) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(__pyx_v_lircrc_file)->tp_name), 0))) __PYX_ERR(0, 30, __pyx_L1_error)
+  if (!(likely(PyUnicode_CheckExact(__pyx_v_lircrc_file))||((__pyx_v_lircrc_file) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(__pyx_v_lircrc_file)->tp_name), 0))) __PYX_ERR(0, 31, __pyx_L1_error)
   __pyx_t_1 = __pyx_v_lircrc_file;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
@@ -1231,14 +1235,14 @@ static int __pyx_pf_7aiolirc_6client_10LIRCClient___init__(struct __pyx_obj_7aio
   __pyx_v_self->lircrc_file = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "aiolirc/client.pyx":31
+  /* "aiolirc/client.pyx":32
  *                  empty_skip=5, verbose=False, blocking=False):
  *         self.lircrc_file = lircrc_file
  *         self.lircrc_prog = lircrc_prog             # <<<<<<<<<<<<<<
  *         self.check_interval = check_interval
  *         self._loop = loop or asyncio.get_event_loop()
  */
-  if (!(likely(PyUnicode_CheckExact(__pyx_v_lircrc_prog))||((__pyx_v_lircrc_prog) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(__pyx_v_lircrc_prog)->tp_name), 0))) __PYX_ERR(0, 31, __pyx_L1_error)
+  if (!(likely(PyUnicode_CheckExact(__pyx_v_lircrc_prog))||((__pyx_v_lircrc_prog) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(__pyx_v_lircrc_prog)->tp_name), 0))) __PYX_ERR(0, 32, __pyx_L1_error)
   __pyx_t_1 = __pyx_v_lircrc_prog;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
@@ -1247,33 +1251,33 @@ static int __pyx_pf_7aiolirc_6client_10LIRCClient___init__(struct __pyx_obj_7aio
   __pyx_v_self->lircrc_prog = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "aiolirc/client.pyx":32
+  /* "aiolirc/client.pyx":33
  *         self.lircrc_file = lircrc_file
  *         self.lircrc_prog = lircrc_prog
  *         self.check_interval = check_interval             # <<<<<<<<<<<<<<
  *         self._loop = loop or asyncio.get_event_loop()
  *         self._lirc_socket = -2
  */
-  __pyx_t_2 = __pyx_PyFloat_AsFloat(__pyx_v_check_interval); if (unlikely((__pyx_t_2 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 32, __pyx_L1_error)
+  __pyx_t_2 = __pyx_PyFloat_AsFloat(__pyx_v_check_interval); if (unlikely((__pyx_t_2 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 33, __pyx_L1_error)
   __pyx_v_self->check_interval = __pyx_t_2;
 
-  /* "aiolirc/client.pyx":33
+  /* "aiolirc/client.pyx":34
  *         self.lircrc_prog = lircrc_prog
  *         self.check_interval = check_interval
  *         self._loop = loop or asyncio.get_event_loop()             # <<<<<<<<<<<<<<
  *         self._lirc_socket = -2
  *         self._blocking = blocking
  */
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_loop); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_loop); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 34, __pyx_L1_error)
   if (!__pyx_t_3) {
   } else {
     __Pyx_INCREF(__pyx_v_loop);
     __pyx_t_1 = __pyx_v_loop;
     goto __pyx_L3_bool_binop_done;
   }
-  __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_asyncio); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_asyncio); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 34, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_get_event_loop); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_get_event_loop); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 34, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_5 = NULL;
@@ -1287,10 +1291,10 @@ static int __pyx_pf_7aiolirc_6client_10LIRCClient___init__(struct __pyx_obj_7aio
     }
   }
   if (__pyx_t_5) {
-    __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 33, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 34, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   } else {
-    __pyx_t_4 = __Pyx_PyObject_CallNoArg(__pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 33, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_CallNoArg(__pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 34, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -1304,7 +1308,7 @@ static int __pyx_pf_7aiolirc_6client_10LIRCClient___init__(struct __pyx_obj_7aio
   __pyx_v_self->_loop = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "aiolirc/client.pyx":34
+  /* "aiolirc/client.pyx":35
  *         self.check_interval = check_interval
  *         self._loop = loop or asyncio.get_event_loop()
  *         self._lirc_socket = -2             # <<<<<<<<<<<<<<
@@ -1313,17 +1317,17 @@ static int __pyx_pf_7aiolirc_6client_10LIRCClient___init__(struct __pyx_obj_7aio
  */
   __pyx_v_self->_lirc_socket = -2;
 
-  /* "aiolirc/client.pyx":35
+  /* "aiolirc/client.pyx":36
  *         self._loop = loop or asyncio.get_event_loop()
  *         self._lirc_socket = -2
  *         self._blocking = blocking             # <<<<<<<<<<<<<<
  * 
  *     @property
  */
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_blocking); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 35, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_blocking); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 36, __pyx_L1_error)
   __pyx_v_self->_blocking = __pyx_t_3;
 
-  /* "aiolirc/client.pyx":28
+  /* "aiolirc/client.pyx":29
  * 
  * 
  *     def __init__(self, lircrc_prog, *, lircrc_file='~/.config/lircrc', loop=None, check_interval=.05, max_stack_size=10,             # <<<<<<<<<<<<<<
@@ -1346,7 +1350,7 @@ static int __pyx_pf_7aiolirc_6client_10LIRCClient___init__(struct __pyx_obj_7aio
   return __pyx_r;
 }
 
-/* "aiolirc/client.pyx":38
+/* "aiolirc/client.pyx":39
  * 
  *     @property
  *     def blocking(LIRCClient self not None):             # <<<<<<<<<<<<<<
@@ -1361,7 +1365,7 @@ static PyObject *__pyx_pw_7aiolirc_6client_10LIRCClient_8blocking_1__get__(PyObj
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   if (unlikely(((PyObject *)__pyx_v_self) == Py_None)) {
-    PyErr_Format(PyExc_TypeError, "Argument '%.200s' must not be None", "self"); __PYX_ERR(0, 38, __pyx_L1_error)
+    PyErr_Format(PyExc_TypeError, "Argument '%.200s' must not be None", "self"); __PYX_ERR(0, 39, __pyx_L1_error)
   }
   __pyx_r = __pyx_pf_7aiolirc_6client_10LIRCClient_8blocking___get__(((struct __pyx_obj_7aiolirc_6client_LIRCClient *)__pyx_v_self));
 
@@ -1380,7 +1384,7 @@ static PyObject *__pyx_pf_7aiolirc_6client_10LIRCClient_8blocking___get__(struct
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "aiolirc/client.pyx":39
+  /* "aiolirc/client.pyx":40
  *     @property
  *     def blocking(LIRCClient self not None):
  *         return self._blocking             # <<<<<<<<<<<<<<
@@ -1388,13 +1392,13 @@ static PyObject *__pyx_pf_7aiolirc_6client_10LIRCClient_8blocking___get__(struct
  *     @blocking.setter
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->_blocking); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 39, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->_blocking); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "aiolirc/client.pyx":38
+  /* "aiolirc/client.pyx":39
  * 
  *     @property
  *     def blocking(LIRCClient self not None):             # <<<<<<<<<<<<<<
@@ -1413,7 +1417,7 @@ static PyObject *__pyx_pf_7aiolirc_6client_10LIRCClient_8blocking___get__(struct
   return __pyx_r;
 }
 
-/* "aiolirc/client.pyx":42
+/* "aiolirc/client.pyx":43
  * 
  *     @blocking.setter
  *     def blocking(LIRCClient self not None, bint v):             # <<<<<<<<<<<<<<
@@ -1429,7 +1433,7 @@ static int __pyx_pw_7aiolirc_6client_10LIRCClient_8blocking_3__set__(PyObject *_
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
   assert(__pyx_arg_v); {
-    __pyx_v_v = __Pyx_PyObject_IsTrue(__pyx_arg_v); if (unlikely((__pyx_v_v == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 42, __pyx_L3_error)
+    __pyx_v_v = __Pyx_PyObject_IsTrue(__pyx_arg_v); if (unlikely((__pyx_v_v == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 43, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -1438,7 +1442,7 @@ static int __pyx_pw_7aiolirc_6client_10LIRCClient_8blocking_3__set__(PyObject *_
   return -1;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(((PyObject *)__pyx_v_self) == Py_None)) {
-    PyErr_Format(PyExc_TypeError, "Argument '%.200s' must not be None", "self"); __PYX_ERR(0, 42, __pyx_L1_error)
+    PyErr_Format(PyExc_TypeError, "Argument '%.200s' must not be None", "self"); __PYX_ERR(0, 43, __pyx_L1_error)
   }
   __pyx_r = __pyx_pf_7aiolirc_6client_10LIRCClient_8blocking_2__set__(((struct __pyx_obj_7aiolirc_6client_LIRCClient *)__pyx_v_self), ((int)__pyx_v_v));
 
@@ -1457,7 +1461,7 @@ static int __pyx_pf_7aiolirc_6client_10LIRCClient_8blocking_2__set__(struct __py
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("__set__", 0);
 
-  /* "aiolirc/client.pyx":43
+  /* "aiolirc/client.pyx":44
  *     @blocking.setter
  *     def blocking(LIRCClient self not None, bint v):
  *         if v is not self._blocking:             # <<<<<<<<<<<<<<
@@ -1467,7 +1471,7 @@ static int __pyx_pf_7aiolirc_6client_10LIRCClient_8blocking_2__set__(struct __py
   __pyx_t_1 = ((__pyx_v_v != __pyx_v_self->_blocking) != 0);
   if (__pyx_t_1) {
 
-    /* "aiolirc/client.pyx":44
+    /* "aiolirc/client.pyx":45
  *     def blocking(LIRCClient self not None, bint v):
  *         if v is not self._blocking:
  *             self._blocking = v             # <<<<<<<<<<<<<<
@@ -1476,7 +1480,7 @@ static int __pyx_pf_7aiolirc_6client_10LIRCClient_8blocking_2__set__(struct __py
  */
     __pyx_v_self->_blocking = __pyx_v_v;
 
-    /* "aiolirc/client.pyx":45
+    /* "aiolirc/client.pyx":46
  *         if v is not self._blocking:
  *             self._blocking = v
  *             self.update_blocking()             # <<<<<<<<<<<<<<
@@ -1485,7 +1489,7 @@ static int __pyx_pf_7aiolirc_6client_10LIRCClient_8blocking_2__set__(struct __py
  */
     ((struct __pyx_vtabstruct_7aiolirc_6client_LIRCClient *)__pyx_v_self->__pyx_vtab)->update_blocking(__pyx_v_self);
 
-    /* "aiolirc/client.pyx":43
+    /* "aiolirc/client.pyx":44
  *     @blocking.setter
  *     def blocking(LIRCClient self not None, bint v):
  *         if v is not self._blocking:             # <<<<<<<<<<<<<<
@@ -1494,7 +1498,7 @@ static int __pyx_pf_7aiolirc_6client_10LIRCClient_8blocking_2__set__(struct __py
  */
   }
 
-  /* "aiolirc/client.pyx":42
+  /* "aiolirc/client.pyx":43
  * 
  *     @blocking.setter
  *     def blocking(LIRCClient self not None, bint v):             # <<<<<<<<<<<<<<
@@ -1508,7 +1512,7 @@ static int __pyx_pf_7aiolirc_6client_10LIRCClient_8blocking_2__set__(struct __py
   return __pyx_r;
 }
 
-/* "aiolirc/client.pyx":47
+/* "aiolirc/client.pyx":48
  *             self.update_blocking()
  * 
  *     cdef void load_config_file(LIRCClient self, unicode lircrc_file):             # <<<<<<<<<<<<<<
@@ -1528,14 +1532,14 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_load_config_file(struct __pyx_
   int __pyx_t_7;
   __Pyx_RefNannySetupContext("load_config_file", 0);
 
-  /* "aiolirc/client.pyx":49
+  /* "aiolirc/client.pyx":50
  *     cdef void load_config_file(LIRCClient self, unicode lircrc_file):
  *         global lircrc_config
  *         self._ensure_init()             # <<<<<<<<<<<<<<
  * 
  *         b_lircrc_filename = lircrc_file.encode(ENCODING)
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ensure_init); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 49, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ensure_init); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 50, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -1548,25 +1552,25 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_load_config_file(struct __pyx_
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "aiolirc/client.pyx":51
+  /* "aiolirc/client.pyx":52
  *         self._ensure_init()
  * 
  *         b_lircrc_filename = lircrc_file.encode(ENCODING)             # <<<<<<<<<<<<<<
  * 
  *         if lircrc_config is not None:
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_lircrc_file, __pyx_n_s_encode); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 51, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_lircrc_file, __pyx_n_s_encode); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_ENCODING); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 51, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_ENCODING); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -1579,17 +1583,17 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_load_config_file(struct __pyx_
     }
   }
   if (!__pyx_t_4) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else {
-    __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 51, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 52, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4); __pyx_t_4 = NULL;
     __Pyx_GIVEREF(__pyx_t_3);
     PyTuple_SET_ITEM(__pyx_t_5, 0+1, __pyx_t_3);
     __pyx_t_3 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
@@ -1597,7 +1601,7 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_load_config_file(struct __pyx_
   __pyx_v_b_lircrc_filename = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "aiolirc/client.pyx":53
+  /* "aiolirc/client.pyx":54
  *         b_lircrc_filename = lircrc_file.encode(ENCODING)
  * 
  *         if lircrc_config is not None:             # <<<<<<<<<<<<<<
@@ -1608,14 +1612,14 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_load_config_file(struct __pyx_
   __pyx_t_7 = (__pyx_t_6 != 0);
   if (__pyx_t_7) {
 
-    /* "aiolirc/client.pyx":54
+    /* "aiolirc/client.pyx":55
  * 
  *         if lircrc_config is not None:
  *             lircrc_config.add_config_file(b_lircrc_filename)             # <<<<<<<<<<<<<<
  *         else:
  *             lircrc_config = LIRCConfig(b_lircrc_filename)
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_7aiolirc_6client_lircrc_config, __pyx_n_s_add_config_file); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 54, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_7aiolirc_6client_lircrc_config, __pyx_n_s_add_config_file); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 55, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_5 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -1628,23 +1632,23 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_load_config_file(struct __pyx_
       }
     }
     if (!__pyx_t_5) {
-      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_b_lircrc_filename); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_b_lircrc_filename); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 55, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     } else {
-      __pyx_t_3 = PyTuple_New(1+1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 54, __pyx_L1_error)
+      __pyx_t_3 = PyTuple_New(1+1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 55, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_5); __pyx_t_5 = NULL;
       __Pyx_INCREF(__pyx_v_b_lircrc_filename);
       __Pyx_GIVEREF(__pyx_v_b_lircrc_filename);
       PyTuple_SET_ITEM(__pyx_t_3, 0+1, __pyx_v_b_lircrc_filename);
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 55, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "aiolirc/client.pyx":53
+    /* "aiolirc/client.pyx":54
  *         b_lircrc_filename = lircrc_file.encode(ENCODING)
  * 
  *         if lircrc_config is not None:             # <<<<<<<<<<<<<<
@@ -1654,7 +1658,7 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_load_config_file(struct __pyx_
     goto __pyx_L3;
   }
 
-  /* "aiolirc/client.pyx":56
+  /* "aiolirc/client.pyx":57
  *             lircrc_config.add_config_file(b_lircrc_filename)
  *         else:
  *             lircrc_config = LIRCConfig(b_lircrc_filename)             # <<<<<<<<<<<<<<
@@ -1662,7 +1666,7 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_load_config_file(struct __pyx_
  *     cdef void update_blocking(LIRCClient self):
  */
   /*else*/ {
-    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_LIRCConfig); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 56, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_LIRCConfig); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 57, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_3 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -1675,16 +1679,16 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_load_config_file(struct __pyx_
       }
     }
     if (!__pyx_t_3) {
-      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_b_lircrc_filename); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 56, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_b_lircrc_filename); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 57, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     } else {
-      __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 56, __pyx_L1_error)
+      __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 57, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_3); __pyx_t_3 = NULL;
       __Pyx_INCREF(__pyx_v_b_lircrc_filename);
       __Pyx_GIVEREF(__pyx_v_b_lircrc_filename);
       PyTuple_SET_ITEM(__pyx_t_5, 0+1, __pyx_v_b_lircrc_filename);
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 56, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 57, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     }
@@ -1696,7 +1700,7 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_load_config_file(struct __pyx_
   }
   __pyx_L3:;
 
-  /* "aiolirc/client.pyx":47
+  /* "aiolirc/client.pyx":48
  *             self.update_blocking()
  * 
  *     cdef void load_config_file(LIRCClient self, unicode lircrc_file):             # <<<<<<<<<<<<<<
@@ -1718,7 +1722,7 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_load_config_file(struct __pyx_
   __Pyx_RefNannyFinishContext();
 }
 
-/* "aiolirc/client.pyx":58
+/* "aiolirc/client.pyx":59
  *             lircrc_config = LIRCConfig(b_lircrc_filename)
  * 
  *     cdef void update_blocking(LIRCClient self):             # <<<<<<<<<<<<<<
@@ -1732,7 +1736,7 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_update_blocking(struct __pyx_o
   long __pyx_t_1;
   __Pyx_RefNannySetupContext("update_blocking", 0);
 
-  /* "aiolirc/client.pyx":59
+  /* "aiolirc/client.pyx":60
  * 
  *     cdef void update_blocking(LIRCClient self):
  *         fcntl.fcntl(self._lirc_socket, fcntl.F_SETOWN, unistd.getpid())             # <<<<<<<<<<<<<<
@@ -1741,7 +1745,7 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_update_blocking(struct __pyx_o
  */
   fcntl(__pyx_v_self->_lirc_socket, F_SETOWN, getpid());
 
-  /* "aiolirc/client.pyx":60
+  /* "aiolirc/client.pyx":61
  *     cdef void update_blocking(LIRCClient self):
  *         fcntl.fcntl(self._lirc_socket, fcntl.F_SETOWN, unistd.getpid())
  *         flags = fcntl.fcntl(self._lirc_socket, fcntl.F_GETFL, 0)             # <<<<<<<<<<<<<<
@@ -1750,7 +1754,7 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_update_blocking(struct __pyx_o
  */
   __pyx_v_flags = fcntl(__pyx_v_self->_lirc_socket, F_GETFL, 0);
 
-  /* "aiolirc/client.pyx":61
+  /* "aiolirc/client.pyx":62
  *         fcntl.fcntl(self._lirc_socket, fcntl.F_SETOWN, unistd.getpid())
  *         flags = fcntl.fcntl(self._lirc_socket, fcntl.F_GETFL, 0)
  *         flags = (flags & ~fcntl.O_NONBLOCK) | (0 if self._blocking else fcntl.O_NONBLOCK)             # <<<<<<<<<<<<<<
@@ -1764,7 +1768,7 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_update_blocking(struct __pyx_o
   }
   __pyx_v_flags = ((__pyx_v_flags & (~O_NONBLOCK)) | __pyx_t_1);
 
-  /* "aiolirc/client.pyx":62
+  /* "aiolirc/client.pyx":63
  *         flags = fcntl.fcntl(self._lirc_socket, fcntl.F_GETFL, 0)
  *         flags = (flags & ~fcntl.O_NONBLOCK) | (0 if self._blocking else fcntl.O_NONBLOCK)
  *         fcntl.fcntl(self._lirc_socket, fcntl.F_SETFL, flags)             # <<<<<<<<<<<<<<
@@ -1773,7 +1777,7 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_update_blocking(struct __pyx_o
  */
   fcntl(__pyx_v_self->_lirc_socket, F_SETFL, __pyx_v_flags);
 
-  /* "aiolirc/client.pyx":58
+  /* "aiolirc/client.pyx":59
  *             lircrc_config = LIRCConfig(b_lircrc_filename)
  * 
  *     cdef void update_blocking(LIRCClient self):             # <<<<<<<<<<<<<<
@@ -1785,7 +1789,7 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_update_blocking(struct __pyx_o
   __Pyx_RefNannyFinishContext();
 }
 
-/* "aiolirc/client.pyx":64
+/* "aiolirc/client.pyx":65
  *         fcntl.fcntl(self._lirc_socket, fcntl.F_SETFL, flags)
  * 
  *     cdef void lirc_init(LIRCClient self):             # <<<<<<<<<<<<<<
@@ -1795,7 +1799,6 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_update_blocking(struct __pyx_o
 
 static void __pyx_f_7aiolirc_6client_10LIRCClient_lirc_init(struct __pyx_obj_7aiolirc_6client_LIRCClient *__pyx_v_self) {
   PyObject *__pyx_v_b_program_name = NULL;
-  CYTHON_UNUSED int __pyx_v__initialised;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   int __pyx_t_2;
@@ -1808,26 +1811,26 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_lirc_init(struct __pyx_obj_7ai
   int __pyx_t_9;
   __Pyx_RefNannySetupContext("lirc_init", 0);
 
-  /* "aiolirc/client.pyx":66
+  /* "aiolirc/client.pyx":67
  *     cdef void lirc_init(LIRCClient self):
  *         global initialized
  *         if initialized:             # <<<<<<<<<<<<<<
  *             PyErr_WarnEx(UserWarning, "lirc is already initialized.", 1)
  *             return
  */
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_7aiolirc_6client_initialized); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 66, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_7aiolirc_6client_initialized); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 67, __pyx_L1_error)
   if (__pyx_t_1) {
 
-    /* "aiolirc/client.pyx":67
+    /* "aiolirc/client.pyx":68
  *         global initialized
  *         if initialized:
  *             PyErr_WarnEx(UserWarning, "lirc is already initialized.", 1)             # <<<<<<<<<<<<<<
  *             return
  * 
  */
-    __pyx_t_2 = PyErr_WarnEx(__pyx_builtin_UserWarning, ((char *)"lirc is already initialized."), 1); if (unlikely(__pyx_t_2 == -1)) __PYX_ERR(0, 67, __pyx_L1_error)
+    __pyx_t_2 = PyErr_WarnEx(__pyx_builtin_UserWarning, ((char *)"lirc is already initialized."), 1); if (unlikely(__pyx_t_2 == -1)) __PYX_ERR(0, 68, __pyx_L1_error)
 
-    /* "aiolirc/client.pyx":68
+    /* "aiolirc/client.pyx":69
  *         if initialized:
  *             PyErr_WarnEx(UserWarning, "lirc is already initialized.", 1)
  *             return             # <<<<<<<<<<<<<<
@@ -1836,7 +1839,7 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_lirc_init(struct __pyx_obj_7ai
  */
     goto __pyx_L0;
 
-    /* "aiolirc/client.pyx":66
+    /* "aiolirc/client.pyx":67
  *     cdef void lirc_init(LIRCClient self):
  *         global initialized
  *         if initialized:             # <<<<<<<<<<<<<<
@@ -1845,16 +1848,16 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_lirc_init(struct __pyx_obj_7ai
  */
   }
 
-  /* "aiolirc/client.pyx":71
+  /* "aiolirc/client.pyx":72
  * 
  *         # init lirc
  *         b_program_name = self.lircrc_prog.encode(ENCODING)             # <<<<<<<<<<<<<<
  *         self._lirc_socket = c_lirc_client.lirc_init(b_program_name, self.verbose)
  *         if self._lirc_socket == -1:
  */
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->lircrc_prog, __pyx_n_s_encode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 71, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->lircrc_prog, __pyx_n_s_encode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 72, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_ENCODING); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 71, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_ENCODING); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 72, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_6 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_4))) {
@@ -1867,17 +1870,17 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_lirc_init(struct __pyx_obj_7ai
     }
   }
   if (!__pyx_t_6) {
-    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 71, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 72, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_GOTREF(__pyx_t_3);
   } else {
-    __pyx_t_7 = PyTuple_New(1+1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 71, __pyx_L1_error)
+    __pyx_t_7 = PyTuple_New(1+1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 72, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_6); __pyx_t_6 = NULL;
     __Pyx_GIVEREF(__pyx_t_5);
     PyTuple_SET_ITEM(__pyx_t_7, 0+1, __pyx_t_5);
     __pyx_t_5 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 71, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 72, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   }
@@ -1885,52 +1888,52 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_lirc_init(struct __pyx_obj_7ai
   __pyx_v_b_program_name = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "aiolirc/client.pyx":72
+  /* "aiolirc/client.pyx":73
  *         # init lirc
  *         b_program_name = self.lircrc_prog.encode(ENCODING)
  *         self._lirc_socket = c_lirc_client.lirc_init(b_program_name, self.verbose)             # <<<<<<<<<<<<<<
  *         if self._lirc_socket == -1:
- *             raise LIRCInitError("Unable to initialise lirc (socket was -1 from C library).")
+ *             raise LIRCInitError("Unable to initialize lirc (socket was -1 from C library).")
  */
-  __pyx_t_8 = __Pyx_PyObject_AsString(__pyx_v_b_program_name); if (unlikely((!__pyx_t_8) && PyErr_Occurred())) __PYX_ERR(0, 72, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_AsString(__pyx_v_b_program_name); if (unlikely((!__pyx_t_8) && PyErr_Occurred())) __PYX_ERR(0, 73, __pyx_L1_error)
   __pyx_v_self->_lirc_socket = lirc_init(__pyx_t_8, __pyx_v_self->verbose);
 
-  /* "aiolirc/client.pyx":73
+  /* "aiolirc/client.pyx":74
  *         b_program_name = self.lircrc_prog.encode(ENCODING)
  *         self._lirc_socket = c_lirc_client.lirc_init(b_program_name, self.verbose)
  *         if self._lirc_socket == -1:             # <<<<<<<<<<<<<<
- *             raise LIRCInitError("Unable to initialise lirc (socket was -1 from C library).")
+ *             raise LIRCInitError("Unable to initialize lirc (socket was -1 from C library).")
  * 
  */
   __pyx_t_1 = ((__pyx_v_self->_lirc_socket == -1L) != 0);
   if (__pyx_t_1) {
 
-    /* "aiolirc/client.pyx":74
+    /* "aiolirc/client.pyx":75
  *         self._lirc_socket = c_lirc_client.lirc_init(b_program_name, self.verbose)
  *         if self._lirc_socket == -1:
- *             raise LIRCInitError("Unable to initialise lirc (socket was -1 from C library).")             # <<<<<<<<<<<<<<
+ *             raise LIRCInitError("Unable to initialize lirc (socket was -1 from C library).")             # <<<<<<<<<<<<<<
  * 
  *         # Configure blocking
  */
-    __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_LIRCInitError); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 74, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_LIRCInitError); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 75, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 74, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 75, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __PYX_ERR(0, 74, __pyx_L1_error)
+    __PYX_ERR(0, 75, __pyx_L1_error)
 
-    /* "aiolirc/client.pyx":73
+    /* "aiolirc/client.pyx":74
  *         b_program_name = self.lircrc_prog.encode(ENCODING)
  *         self._lirc_socket = c_lirc_client.lirc_init(b_program_name, self.verbose)
  *         if self._lirc_socket == -1:             # <<<<<<<<<<<<<<
- *             raise LIRCInitError("Unable to initialise lirc (socket was -1 from C library).")
+ *             raise LIRCInitError("Unable to initialize lirc (socket was -1 from C library).")
  * 
  */
   }
 
-  /* "aiolirc/client.pyx":77
+  /* "aiolirc/client.pyx":78
  * 
  *         # Configure blocking
  *         self.update_blocking()             # <<<<<<<<<<<<<<
@@ -1939,16 +1942,19 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_lirc_init(struct __pyx_obj_7ai
  */
   ((struct __pyx_vtabstruct_7aiolirc_6client_LIRCClient *)__pyx_v_self->__pyx_vtab)->update_blocking(__pyx_v_self);
 
-  /* "aiolirc/client.pyx":80
+  /* "aiolirc/client.pyx":81
  * 
  *         # Setting the initialization lock flag
- *         _initialised = True             # <<<<<<<<<<<<<<
+ *         initialized = True             # <<<<<<<<<<<<<<
  * 
  *         # Loading the lircrc file
  */
-  __pyx_v__initialised = 1;
+  __Pyx_INCREF(Py_True);
+  __Pyx_XGOTREF(__pyx_v_7aiolirc_6client_initialized);
+  __Pyx_DECREF_SET(__pyx_v_7aiolirc_6client_initialized, Py_True);
+  __Pyx_GIVEREF(Py_True);
 
-  /* "aiolirc/client.pyx":83
+  /* "aiolirc/client.pyx":84
  * 
  *         # Loading the lircrc file
  *         if self.lircrc_file is not None:             # <<<<<<<<<<<<<<
@@ -1959,7 +1965,7 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_lirc_init(struct __pyx_obj_7ai
   __pyx_t_9 = (__pyx_t_1 != 0);
   if (__pyx_t_9) {
 
-    /* "aiolirc/client.pyx":84
+    /* "aiolirc/client.pyx":85
  *         # Loading the lircrc file
  *         if self.lircrc_file is not None:
  *             self.load_config_file(self.lircrc_file)             # <<<<<<<<<<<<<<
@@ -1971,7 +1977,7 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_lirc_init(struct __pyx_obj_7ai
     ((struct __pyx_vtabstruct_7aiolirc_6client_LIRCClient *)__pyx_v_self->__pyx_vtab)->load_config_file(__pyx_v_self, ((PyObject*)__pyx_t_4));
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "aiolirc/client.pyx":83
+    /* "aiolirc/client.pyx":84
  * 
  *         # Loading the lircrc file
  *         if self.lircrc_file is not None:             # <<<<<<<<<<<<<<
@@ -1980,7 +1986,7 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_lirc_init(struct __pyx_obj_7ai
  */
   }
 
-  /* "aiolirc/client.pyx":64
+  /* "aiolirc/client.pyx":65
  *         fcntl.fcntl(self._lirc_socket, fcntl.F_SETFL, flags)
  * 
  *     cdef void lirc_init(LIRCClient self):             # <<<<<<<<<<<<<<
@@ -2002,7 +2008,7 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_lirc_init(struct __pyx_obj_7ai
   __Pyx_RefNannyFinishContext();
 }
 
-/* "aiolirc/client.pyx":86
+/* "aiolirc/client.pyx":87
  *             self.load_config_file(self.lircrc_file)
  * 
  *     cdef void lirc_deinit(LIRCClient self):             # <<<<<<<<<<<<<<
@@ -2019,27 +2025,27 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_lirc_deinit(CYTHON_UNUSED stru
   PyObject *__pyx_t_5 = NULL;
   __Pyx_RefNannySetupContext("lirc_deinit", 0);
 
-  /* "aiolirc/client.pyx":88
+  /* "aiolirc/client.pyx":89
  *     cdef void lirc_deinit(LIRCClient self):
  *         global initialized, lircrc_config
  *         if not initialized:             # <<<<<<<<<<<<<<
  *             PyErr_WarnEx(UserWarning, "lirc is not initialized yet.", 1)
  *             return
  */
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_7aiolirc_6client_initialized); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_7aiolirc_6client_initialized); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 89, __pyx_L1_error)
   __pyx_t_2 = ((!__pyx_t_1) != 0);
   if (__pyx_t_2) {
 
-    /* "aiolirc/client.pyx":89
+    /* "aiolirc/client.pyx":90
  *         global initialized, lircrc_config
  *         if not initialized:
  *             PyErr_WarnEx(UserWarning, "lirc is not initialized yet.", 1)             # <<<<<<<<<<<<<<
  *             return
  * 
  */
-    __pyx_t_3 = PyErr_WarnEx(__pyx_builtin_UserWarning, ((char *)"lirc is not initialized yet."), 1); if (unlikely(__pyx_t_3 == -1)) __PYX_ERR(0, 89, __pyx_L1_error)
+    __pyx_t_3 = PyErr_WarnEx(__pyx_builtin_UserWarning, ((char *)"lirc is not initialized yet."), 1); if (unlikely(__pyx_t_3 == -1)) __PYX_ERR(0, 90, __pyx_L1_error)
 
-    /* "aiolirc/client.pyx":90
+    /* "aiolirc/client.pyx":91
  *         if not initialized:
  *             PyErr_WarnEx(UserWarning, "lirc is not initialized yet.", 1)
  *             return             # <<<<<<<<<<<<<<
@@ -2048,7 +2054,7 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_lirc_deinit(CYTHON_UNUSED stru
  */
     goto __pyx_L0;
 
-    /* "aiolirc/client.pyx":88
+    /* "aiolirc/client.pyx":89
  *     cdef void lirc_deinit(LIRCClient self):
  *         global initialized, lircrc_config
  *         if not initialized:             # <<<<<<<<<<<<<<
@@ -2057,43 +2063,43 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_lirc_deinit(CYTHON_UNUSED stru
  */
   }
 
-  /* "aiolirc/client.pyx":92
+  /* "aiolirc/client.pyx":93
  *             return
  * 
  *         if c_lirc_client.lirc_deinit() == -1:             # <<<<<<<<<<<<<<
- *             raise LIRCDeinitError("Unable to de-initialise lirc.")
+ *             raise LIRCDeinitError("Unable to de-initialize lirc.")
  * 
  */
   __pyx_t_2 = ((lirc_deinit() == -1L) != 0);
   if (__pyx_t_2) {
 
-    /* "aiolirc/client.pyx":93
+    /* "aiolirc/client.pyx":94
  * 
  *         if c_lirc_client.lirc_deinit() == -1:
- *             raise LIRCDeinitError("Unable to de-initialise lirc.")             # <<<<<<<<<<<<<<
+ *             raise LIRCDeinitError("Unable to de-initialize lirc.")             # <<<<<<<<<<<<<<
  * 
  *         lircrc_config = None
  */
-    __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_LIRCDeinitError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 93, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_LIRCDeinitError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 94, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 93, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 94, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_Raise(__pyx_t_5, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __PYX_ERR(0, 93, __pyx_L1_error)
+    __PYX_ERR(0, 94, __pyx_L1_error)
 
-    /* "aiolirc/client.pyx":92
+    /* "aiolirc/client.pyx":93
  *             return
  * 
  *         if c_lirc_client.lirc_deinit() == -1:             # <<<<<<<<<<<<<<
- *             raise LIRCDeinitError("Unable to de-initialise lirc.")
+ *             raise LIRCDeinitError("Unable to de-initialize lirc.")
  * 
  */
   }
 
-  /* "aiolirc/client.pyx":95
- *             raise LIRCDeinitError("Unable to de-initialise lirc.")
+  /* "aiolirc/client.pyx":96
+ *             raise LIRCDeinitError("Unable to de-initialize lirc.")
  * 
  *         lircrc_config = None             # <<<<<<<<<<<<<<
  *         initialized = False
@@ -2104,7 +2110,7 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_lirc_deinit(CYTHON_UNUSED stru
   __Pyx_DECREF_SET(__pyx_v_7aiolirc_6client_lircrc_config, Py_None);
   __Pyx_GIVEREF(Py_None);
 
-  /* "aiolirc/client.pyx":96
+  /* "aiolirc/client.pyx":97
  * 
  *         lircrc_config = None
  *         initialized = False             # <<<<<<<<<<<<<<
@@ -2116,7 +2122,7 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_lirc_deinit(CYTHON_UNUSED stru
   __Pyx_DECREF_SET(__pyx_v_7aiolirc_6client_initialized, Py_False);
   __Pyx_GIVEREF(Py_False);
 
-  /* "aiolirc/client.pyx":86
+  /* "aiolirc/client.pyx":87
  *             self.load_config_file(self.lircrc_file)
  * 
  *     cdef void lirc_deinit(LIRCClient self):             # <<<<<<<<<<<<<<
@@ -2134,12 +2140,12 @@ static void __pyx_f_7aiolirc_6client_10LIRCClient_lirc_deinit(CYTHON_UNUSED stru
   __Pyx_RefNannyFinishContext();
 }
 
-/* "aiolirc/client.pyx":98
+/* "aiolirc/client.pyx":99
  *         initialized = False
  * 
  *     cdef unicode lirc_nextcode(LIRCClient self):             # <<<<<<<<<<<<<<
  *         global lircrc_config
- *         cdef char * code
+ *         cdef char * code = NULL
  */
 
 static PyObject *__pyx_f_7aiolirc_6client_10LIRCClient_lirc_nextcode(CYTHON_UNUSED struct __pyx_obj_7aiolirc_6client_LIRCClient *__pyx_v_self) {
@@ -2154,19 +2160,29 @@ static PyObject *__pyx_f_7aiolirc_6client_10LIRCClient_lirc_nextcode(CYTHON_UNUS
   PyObject *__pyx_t_6 = NULL;
   PyObject *__pyx_t_7 = NULL;
   PyObject *__pyx_t_8 = NULL;
-  PyObject *__pyx_t_9 = NULL;
-  int __pyx_t_10;
+  Py_ssize_t __pyx_t_9;
+  PyObject *__pyx_t_10 = NULL;
   int __pyx_t_11;
-  char const *__pyx_t_12;
-  PyObject *__pyx_t_13 = NULL;
+  int __pyx_t_12;
+  char const *__pyx_t_13;
   PyObject *__pyx_t_14 = NULL;
   PyObject *__pyx_t_15 = NULL;
   PyObject *__pyx_t_16 = NULL;
+  PyObject *__pyx_t_17 = NULL;
   __Pyx_RefNannySetupContext("lirc_nextcode", 0);
 
   /* "aiolirc/client.pyx":101
+ *     cdef unicode lirc_nextcode(LIRCClient self):
  *         global lircrc_config
- *         cdef char * code
+ *         cdef char * code = NULL             # <<<<<<<<<<<<<<
+ *         try:
+ *             if c_lirc_client.lirc_nextcode(&code) == -1:  # Error !
+ */
+  __pyx_v_code = NULL;
+
+  /* "aiolirc/client.pyx":102
+ *         global lircrc_config
+ *         cdef char * code = NULL
  *         try:             # <<<<<<<<<<<<<<
  *             if c_lirc_client.lirc_nextcode(&code) == -1:  # Error !
  *                 raise LIRCNextCodeError("There was an error reading the next code.")
@@ -2181,8 +2197,8 @@ static PyObject *__pyx_f_7aiolirc_6client_10LIRCClient_lirc_nextcode(CYTHON_UNUS
       __Pyx_XGOTREF(__pyx_t_3);
       /*try:*/ {
 
-        /* "aiolirc/client.pyx":102
- *         cdef char * code
+        /* "aiolirc/client.pyx":103
+ *         cdef char * code = NULL
  *         try:
  *             if c_lirc_client.lirc_nextcode(&code) == -1:  # Error !             # <<<<<<<<<<<<<<
  *                 raise LIRCNextCodeError("There was an error reading the next code.")
@@ -2191,24 +2207,24 @@ static PyObject *__pyx_f_7aiolirc_6client_10LIRCClient_lirc_nextcode(CYTHON_UNUS
         __pyx_t_4 = ((lirc_nextcode((&__pyx_v_code)) == -1L) != 0);
         if (__pyx_t_4) {
 
-          /* "aiolirc/client.pyx":103
+          /* "aiolirc/client.pyx":104
  *         try:
  *             if c_lirc_client.lirc_nextcode(&code) == -1:  # Error !
  *                 raise LIRCNextCodeError("There was an error reading the next code.")             # <<<<<<<<<<<<<<
  * 
  *             if code == NULL:
  */
-          __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_LIRCNextCodeError); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 103, __pyx_L6_error)
+          __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_LIRCNextCodeError); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 104, __pyx_L6_error)
           __Pyx_GOTREF(__pyx_t_5);
-          __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 103, __pyx_L6_error)
+          __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 104, __pyx_L6_error)
           __Pyx_GOTREF(__pyx_t_6);
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_Raise(__pyx_t_6, 0, 0, 0);
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-          __PYX_ERR(0, 103, __pyx_L6_error)
+          __PYX_ERR(0, 104, __pyx_L6_error)
 
-          /* "aiolirc/client.pyx":102
- *         cdef char * code
+          /* "aiolirc/client.pyx":103
+ *         cdef char * code = NULL
  *         try:
  *             if c_lirc_client.lirc_nextcode(&code) == -1:  # Error !             # <<<<<<<<<<<<<<
  *                 raise LIRCNextCodeError("There was an error reading the next code.")
@@ -2216,7 +2232,7 @@ static PyObject *__pyx_f_7aiolirc_6client_10LIRCClient_lirc_nextcode(CYTHON_UNUS
  */
         }
 
-        /* "aiolirc/client.pyx":105
+        /* "aiolirc/client.pyx":106
  *                 raise LIRCNextCodeError("There was an error reading the next code.")
  * 
  *             if code == NULL:             # <<<<<<<<<<<<<<
@@ -2226,19 +2242,19 @@ static PyObject *__pyx_f_7aiolirc_6client_10LIRCClient_lirc_nextcode(CYTHON_UNUS
         __pyx_t_4 = ((__pyx_v_code == NULL) != 0);
         if (__pyx_t_4) {
 
-          /* "aiolirc/client.pyx":106
+          /* "aiolirc/client.pyx":107
  * 
  *             if code == NULL:
  *                 return None             # <<<<<<<<<<<<<<
  *             else:
- *                 return lircrc_config.translate(code)
+ *                 return LIRCConfig.translate(lircrc_config, code)
  */
           __Pyx_XDECREF(__pyx_r);
           __Pyx_INCREF(Py_None);
           __pyx_r = ((PyObject*)Py_None);
           goto __pyx_L10_try_return;
 
-          /* "aiolirc/client.pyx":105
+          /* "aiolirc/client.pyx":106
  *                 raise LIRCNextCodeError("There was an error reading the next code.")
  * 
  *             if code == NULL:             # <<<<<<<<<<<<<<
@@ -2247,54 +2263,58 @@ static PyObject *__pyx_f_7aiolirc_6client_10LIRCClient_lirc_nextcode(CYTHON_UNUS
  */
         }
 
-        /* "aiolirc/client.pyx":108
+        /* "aiolirc/client.pyx":109
  *                 return None
  *             else:
- *                 return lircrc_config.translate(code)             # <<<<<<<<<<<<<<
+ *                 return LIRCConfig.translate(lircrc_config, code)             # <<<<<<<<<<<<<<
  *         except TranslateDone:
  *             return None
  */
         /*else*/ {
           __Pyx_XDECREF(__pyx_r);
-          __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_7aiolirc_6client_lircrc_config, __pyx_n_s_translate); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 108, __pyx_L6_error)
+          __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_LIRCConfig); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 109, __pyx_L6_error)
           __Pyx_GOTREF(__pyx_t_5);
-          __pyx_t_7 = __Pyx_PyBytes_FromString(__pyx_v_code); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 108, __pyx_L6_error)
+          __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_translate); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 109, __pyx_L6_error)
           __Pyx_GOTREF(__pyx_t_7);
+          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+          __pyx_t_5 = __Pyx_PyBytes_FromString(__pyx_v_code); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 109, __pyx_L6_error)
+          __Pyx_GOTREF(__pyx_t_5);
           __pyx_t_8 = NULL;
-          if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_5))) {
-            __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_5);
+          __pyx_t_9 = 0;
+          if (CYTHON_COMPILING_IN_CPYTHON && unlikely(PyMethod_Check(__pyx_t_7))) {
+            __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_7);
             if (likely(__pyx_t_8)) {
-              PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
+              PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_7);
               __Pyx_INCREF(__pyx_t_8);
               __Pyx_INCREF(function);
-              __Pyx_DECREF_SET(__pyx_t_5, function);
+              __Pyx_DECREF_SET(__pyx_t_7, function);
+              __pyx_t_9 = 1;
             }
           }
-          if (!__pyx_t_8) {
-            __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_7); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 108, __pyx_L6_error)
-            __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-            __Pyx_GOTREF(__pyx_t_6);
-          } else {
-            __pyx_t_9 = PyTuple_New(1+1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 108, __pyx_L6_error)
-            __Pyx_GOTREF(__pyx_t_9);
-            __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_8); __pyx_t_8 = NULL;
-            __Pyx_GIVEREF(__pyx_t_7);
-            PyTuple_SET_ITEM(__pyx_t_9, 0+1, __pyx_t_7);
-            __pyx_t_7 = 0;
-            __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_9, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 108, __pyx_L6_error)
-            __Pyx_GOTREF(__pyx_t_6);
-            __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+          __pyx_t_10 = PyTuple_New(2+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 109, __pyx_L6_error)
+          __Pyx_GOTREF(__pyx_t_10);
+          if (__pyx_t_8) {
+            __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_8); __pyx_t_8 = NULL;
           }
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          if (!(likely(PyUnicode_CheckExact(__pyx_t_6))||((__pyx_t_6) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(__pyx_t_6)->tp_name), 0))) __PYX_ERR(0, 108, __pyx_L6_error)
+          __Pyx_INCREF(__pyx_v_7aiolirc_6client_lircrc_config);
+          __Pyx_GIVEREF(__pyx_v_7aiolirc_6client_lircrc_config);
+          PyTuple_SET_ITEM(__pyx_t_10, 0+__pyx_t_9, __pyx_v_7aiolirc_6client_lircrc_config);
+          __Pyx_GIVEREF(__pyx_t_5);
+          PyTuple_SET_ITEM(__pyx_t_10, 1+__pyx_t_9, __pyx_t_5);
+          __pyx_t_5 = 0;
+          __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_10, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 109, __pyx_L6_error)
+          __Pyx_GOTREF(__pyx_t_6);
+          __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+          __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+          if (!(likely(PyUnicode_CheckExact(__pyx_t_6))||((__pyx_t_6) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(__pyx_t_6)->tp_name), 0))) __PYX_ERR(0, 109, __pyx_L6_error)
           __pyx_r = ((PyObject*)__pyx_t_6);
           __pyx_t_6 = 0;
           goto __pyx_L10_try_return;
         }
 
-        /* "aiolirc/client.pyx":101
+        /* "aiolirc/client.pyx":102
  *         global lircrc_config
- *         cdef char * code
+ *         cdef char * code = NULL
  *         try:             # <<<<<<<<<<<<<<
  *             if c_lirc_client.lirc_nextcode(&code) == -1:  # Error !
  *                 raise LIRCNextCodeError("There was an error reading the next code.")
@@ -2303,31 +2323,31 @@ static PyObject *__pyx_f_7aiolirc_6client_10LIRCClient_lirc_nextcode(CYTHON_UNUS
       __pyx_L6_error:;
       __Pyx_PyThreadState_assign
       __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+      __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
+      __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-      /* "aiolirc/client.pyx":109
+      /* "aiolirc/client.pyx":110
  *             else:
- *                 return lircrc_config.translate(code)
+ *                 return LIRCConfig.translate(lircrc_config, code)
  *         except TranslateDone:             # <<<<<<<<<<<<<<
  *             return None
  *         finally:
  */
-      __pyx_t_6 = __Pyx_GetModuleGlobalName(__pyx_n_s_TranslateDone); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 109, __pyx_L8_except_error)
+      __pyx_t_6 = __Pyx_GetModuleGlobalName(__pyx_n_s_TranslateDone); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 110, __pyx_L8_except_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_10 = __Pyx_PyErr_ExceptionMatches(__pyx_t_6);
+      __pyx_t_11 = __Pyx_PyErr_ExceptionMatches(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (__pyx_t_10) {
+      if (__pyx_t_11) {
         __Pyx_AddTraceback("aiolirc.client.LIRCClient.lirc_nextcode", __pyx_clineno, __pyx_lineno, __pyx_filename);
-        if (__Pyx_GetException(&__pyx_t_6, &__pyx_t_5, &__pyx_t_9) < 0) __PYX_ERR(0, 109, __pyx_L8_except_error)
+        if (__Pyx_GetException(&__pyx_t_6, &__pyx_t_7, &__pyx_t_10) < 0) __PYX_ERR(0, 110, __pyx_L8_except_error)
         __Pyx_GOTREF(__pyx_t_6);
-        __Pyx_GOTREF(__pyx_t_5);
-        __Pyx_GOTREF(__pyx_t_9);
+        __Pyx_GOTREF(__pyx_t_7);
+        __Pyx_GOTREF(__pyx_t_10);
 
-        /* "aiolirc/client.pyx":110
- *                 return lircrc_config.translate(code)
+        /* "aiolirc/client.pyx":111
+ *                 return LIRCConfig.translate(lircrc_config, code)
  *         except TranslateDone:
  *             return None             # <<<<<<<<<<<<<<
  *         finally:
@@ -2336,17 +2356,17 @@ static PyObject *__pyx_f_7aiolirc_6client_10LIRCClient_lirc_nextcode(CYTHON_UNUS
         __Pyx_XDECREF(__pyx_r);
         __Pyx_INCREF(Py_None);
         __pyx_r = ((PyObject*)Py_None);
-        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+        __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         goto __pyx_L9_except_return;
       }
       goto __pyx_L8_except_error;
       __pyx_L8_except_error:;
 
-      /* "aiolirc/client.pyx":101
+      /* "aiolirc/client.pyx":102
  *         global lircrc_config
- *         cdef char * code
+ *         cdef char * code = NULL
  *         try:             # <<<<<<<<<<<<<<
  *             if c_lirc_client.lirc_nextcode(&code) == -1:  # Error !
  *                 raise LIRCNextCodeError("There was an error reading the next code.")
@@ -2374,7 +2394,7 @@ static PyObject *__pyx_f_7aiolirc_6client_10LIRCClient_lirc_nextcode(CYTHON_UNUS
     }
   }
 
-  /* "aiolirc/client.pyx":112
+  /* "aiolirc/client.pyx":113
  *             return None
  *         finally:
  *             free(code)             # <<<<<<<<<<<<<<
@@ -2385,56 +2405,56 @@ static PyObject *__pyx_f_7aiolirc_6client_10LIRCClient_lirc_nextcode(CYTHON_UNUS
     /*exception exit:*/{
       __Pyx_PyThreadState_declare
       __pyx_L4_error:;
-      __pyx_t_3 = 0; __pyx_t_2 = 0; __pyx_t_1 = 0; __pyx_t_13 = 0; __pyx_t_14 = 0; __pyx_t_15 = 0;
+      __pyx_t_3 = 0; __pyx_t_2 = 0; __pyx_t_1 = 0; __pyx_t_14 = 0; __pyx_t_15 = 0; __pyx_t_16 = 0;
       __Pyx_PyThreadState_assign
       __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-      if (PY_MAJOR_VERSION >= 3) __Pyx_ExceptionSwap(&__pyx_t_13, &__pyx_t_14, &__pyx_t_15);
+      __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+      __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+      __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
+      if (PY_MAJOR_VERSION >= 3) __Pyx_ExceptionSwap(&__pyx_t_14, &__pyx_t_15, &__pyx_t_16);
       if ((PY_MAJOR_VERSION < 3) || unlikely(__Pyx_GetException(&__pyx_t_3, &__pyx_t_2, &__pyx_t_1) < 0)) __Pyx_ErrFetch(&__pyx_t_3, &__pyx_t_2, &__pyx_t_1);
       __Pyx_XGOTREF(__pyx_t_3);
       __Pyx_XGOTREF(__pyx_t_2);
       __Pyx_XGOTREF(__pyx_t_1);
-      __Pyx_XGOTREF(__pyx_t_13);
       __Pyx_XGOTREF(__pyx_t_14);
       __Pyx_XGOTREF(__pyx_t_15);
-      __pyx_t_10 = __pyx_lineno; __pyx_t_11 = __pyx_clineno; __pyx_t_12 = __pyx_filename;
+      __Pyx_XGOTREF(__pyx_t_16);
+      __pyx_t_11 = __pyx_lineno; __pyx_t_12 = __pyx_clineno; __pyx_t_13 = __pyx_filename;
       {
         free(__pyx_v_code);
       }
       __Pyx_PyThreadState_assign
       if (PY_MAJOR_VERSION >= 3) {
-        __Pyx_XGIVEREF(__pyx_t_13);
         __Pyx_XGIVEREF(__pyx_t_14);
         __Pyx_XGIVEREF(__pyx_t_15);
-        __Pyx_ExceptionReset(__pyx_t_13, __pyx_t_14, __pyx_t_15);
+        __Pyx_XGIVEREF(__pyx_t_16);
+        __Pyx_ExceptionReset(__pyx_t_14, __pyx_t_15, __pyx_t_16);
       }
       __Pyx_XGIVEREF(__pyx_t_3);
       __Pyx_XGIVEREF(__pyx_t_2);
       __Pyx_XGIVEREF(__pyx_t_1);
       __Pyx_ErrRestore(__pyx_t_3, __pyx_t_2, __pyx_t_1);
-      __pyx_t_3 = 0; __pyx_t_2 = 0; __pyx_t_1 = 0; __pyx_t_13 = 0; __pyx_t_14 = 0; __pyx_t_15 = 0;
-      __pyx_lineno = __pyx_t_10; __pyx_clineno = __pyx_t_11; __pyx_filename = __pyx_t_12;
+      __pyx_t_3 = 0; __pyx_t_2 = 0; __pyx_t_1 = 0; __pyx_t_14 = 0; __pyx_t_15 = 0; __pyx_t_16 = 0;
+      __pyx_lineno = __pyx_t_11; __pyx_clineno = __pyx_t_12; __pyx_filename = __pyx_t_13;
       goto __pyx_L1_error;
     }
     __pyx_L3_return: {
-      __pyx_t_16 = __pyx_r;
+      __pyx_t_17 = __pyx_r;
       __pyx_r = 0;
       free(__pyx_v_code);
-      __pyx_r = __pyx_t_16;
-      __pyx_t_16 = 0;
+      __pyx_r = __pyx_t_17;
+      __pyx_t_17 = 0;
       goto __pyx_L0;
     }
   }
 
-  /* "aiolirc/client.pyx":98
+  /* "aiolirc/client.pyx":99
  *         initialized = False
  * 
  *     cdef unicode lirc_nextcode(LIRCClient self):             # <<<<<<<<<<<<<<
  *         global lircrc_config
- *         cdef char * code
+ *         cdef char * code = NULL
  */
 
   /* function exit code */
@@ -2443,7 +2463,7 @@ static PyObject *__pyx_f_7aiolirc_6client_10LIRCClient_lirc_nextcode(CYTHON_UNUS
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_XDECREF(__pyx_t_9);
+  __Pyx_XDECREF(__pyx_t_10);
   __Pyx_AddTraceback("aiolirc.client.LIRCClient.lirc_nextcode", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
@@ -2452,7 +2472,7 @@ static PyObject *__pyx_f_7aiolirc_6client_10LIRCClient_lirc_nextcode(CYTHON_UNUS
   return __pyx_r;
 }
 
-/* "aiolirc/client.pyx":114
+/* "aiolirc/client.pyx":115
  *             free(code)
  * 
  *     def _ensure_async(LIRCClient self not None):             # <<<<<<<<<<<<<<
@@ -2467,7 +2487,7 @@ static PyObject *__pyx_pw_7aiolirc_6client_10LIRCClient_3_ensure_async(PyObject 
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("_ensure_async (wrapper)", 0);
   if (unlikely(((PyObject *)__pyx_v_self) == Py_None)) {
-    PyErr_Format(PyExc_TypeError, "Argument '%.200s' must not be None", "self"); __PYX_ERR(0, 114, __pyx_L1_error)
+    PyErr_Format(PyExc_TypeError, "Argument '%.200s' must not be None", "self"); __PYX_ERR(0, 115, __pyx_L1_error)
   }
   __pyx_r = __pyx_pf_7aiolirc_6client_10LIRCClient_2_ensure_async(((struct __pyx_obj_7aiolirc_6client_LIRCClient *)__pyx_v_self));
 
@@ -2488,7 +2508,7 @@ static PyObject *__pyx_pf_7aiolirc_6client_10LIRCClient_2_ensure_async(struct __
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("_ensure_async", 0);
 
-  /* "aiolirc/client.pyx":115
+  /* "aiolirc/client.pyx":116
  * 
  *     def _ensure_async(LIRCClient self not None):
  *         if self._blocking:             # <<<<<<<<<<<<<<
@@ -2498,23 +2518,23 @@ static PyObject *__pyx_pf_7aiolirc_6client_10LIRCClient_2_ensure_async(struct __
   __pyx_t_1 = (__pyx_v_self->_blocking != 0);
   if (__pyx_t_1) {
 
-    /* "aiolirc/client.pyx":116
+    /* "aiolirc/client.pyx":117
  *     def _ensure_async(LIRCClient self not None):
  *         if self._blocking:
  *             raise LIRCAbuseError(             # <<<<<<<<<<<<<<
  *                 'Cannot use `Asynchronous Iterator` and `Asynchronous Context Manager` when blocking is True.')
  * 
  */
-    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_LIRCAbuseError); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 116, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_LIRCAbuseError); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 117, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 116, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 117, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __PYX_ERR(0, 116, __pyx_L1_error)
+    __PYX_ERR(0, 117, __pyx_L1_error)
 
-    /* "aiolirc/client.pyx":115
+    /* "aiolirc/client.pyx":116
  * 
  *     def _ensure_async(LIRCClient self not None):
  *         if self._blocking:             # <<<<<<<<<<<<<<
@@ -2523,7 +2543,7 @@ static PyObject *__pyx_pf_7aiolirc_6client_10LIRCClient_2_ensure_async(struct __
  */
   }
 
-  /* "aiolirc/client.pyx":114
+  /* "aiolirc/client.pyx":115
  *             free(code)
  * 
  *     def _ensure_async(LIRCClient self not None):             # <<<<<<<<<<<<<<
@@ -2545,12 +2565,12 @@ static PyObject *__pyx_pf_7aiolirc_6client_10LIRCClient_2_ensure_async(struct __
   return __pyx_r;
 }
 
-/* "aiolirc/client.pyx":119
+/* "aiolirc/client.pyx":120
  *                 'Cannot use `Asynchronous Iterator` and `Asynchronous Context Manager` when blocking is True.')
  * 
  *     def _ensure_init(LIRCClient self not None):             # <<<<<<<<<<<<<<
  *         if not initialized:
- *             raise LIRCInitError('%s has not been initialised.' % self.__name__)
+ *             raise LIRCInitError('%s has not been initialized.' % self.__name__)
  */
 
 /* Python wrapper */
@@ -2560,7 +2580,7 @@ static PyObject *__pyx_pw_7aiolirc_6client_10LIRCClient_5_ensure_init(PyObject *
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("_ensure_init (wrapper)", 0);
   if (unlikely(((PyObject *)__pyx_v_self) == Py_None)) {
-    PyErr_Format(PyExc_TypeError, "Argument '%.200s' must not be None", "self"); __PYX_ERR(0, 119, __pyx_L1_error)
+    PyErr_Format(PyExc_TypeError, "Argument '%.200s' must not be None", "self"); __PYX_ERR(0, 120, __pyx_L1_error)
   }
   __pyx_r = __pyx_pf_7aiolirc_6client_10LIRCClient_4_ensure_init(((struct __pyx_obj_7aiolirc_6client_LIRCClient *)__pyx_v_self));
 
@@ -2585,29 +2605,29 @@ static PyObject *__pyx_pf_7aiolirc_6client_10LIRCClient_4_ensure_init(struct __p
   PyObject *__pyx_t_7 = NULL;
   __Pyx_RefNannySetupContext("_ensure_init", 0);
 
-  /* "aiolirc/client.pyx":120
+  /* "aiolirc/client.pyx":121
  * 
  *     def _ensure_init(LIRCClient self not None):
  *         if not initialized:             # <<<<<<<<<<<<<<
- *             raise LIRCInitError('%s has not been initialised.' % self.__name__)
+ *             raise LIRCInitError('%s has not been initialized.' % self.__name__)
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_7aiolirc_6client_initialized); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_7aiolirc_6client_initialized); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 121, __pyx_L1_error)
   __pyx_t_2 = ((!__pyx_t_1) != 0);
   if (__pyx_t_2) {
 
-    /* "aiolirc/client.pyx":121
+    /* "aiolirc/client.pyx":122
  *     def _ensure_init(LIRCClient self not None):
  *         if not initialized:
- *             raise LIRCInitError('%s has not been initialised.' % self.__name__)             # <<<<<<<<<<<<<<
+ *             raise LIRCInitError('%s has not been initialized.' % self.__name__)             # <<<<<<<<<<<<<<
  * 
  *     # Lock
  */
-    __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_LIRCInitError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 121, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_LIRCInitError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 122, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_name); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 121, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_name); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 122, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyString_Format(__pyx_kp_s_s_has_not_been_initialised, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 121, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyString_Format(__pyx_kp_s_s_has_not_been_initialized, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 122, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_5 = NULL;
@@ -2621,40 +2641,40 @@ static PyObject *__pyx_pf_7aiolirc_6client_10LIRCClient_4_ensure_init(struct __p
       }
     }
     if (!__pyx_t_5) {
-      __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 121, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 122, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_GOTREF(__pyx_t_3);
     } else {
-      __pyx_t_7 = PyTuple_New(1+1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 121, __pyx_L1_error)
+      __pyx_t_7 = PyTuple_New(1+1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 122, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_5); __pyx_t_5 = NULL;
       __Pyx_GIVEREF(__pyx_t_6);
       PyTuple_SET_ITEM(__pyx_t_7, 0+1, __pyx_t_6);
       __pyx_t_6 = 0;
-      __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 121, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 122, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __PYX_ERR(0, 121, __pyx_L1_error)
+    __PYX_ERR(0, 122, __pyx_L1_error)
 
-    /* "aiolirc/client.pyx":120
+    /* "aiolirc/client.pyx":121
  * 
  *     def _ensure_init(LIRCClient self not None):
  *         if not initialized:             # <<<<<<<<<<<<<<
- *             raise LIRCInitError('%s has not been initialised.' % self.__name__)
+ *             raise LIRCInitError('%s has not been initialized.' % self.__name__)
  * 
  */
   }
 
-  /* "aiolirc/client.pyx":119
+  /* "aiolirc/client.pyx":120
  *                 'Cannot use `Asynchronous Iterator` and `Asynchronous Context Manager` when blocking is True.')
  * 
  *     def _ensure_init(LIRCClient self not None):             # <<<<<<<<<<<<<<
  *         if not initialized:
- *             raise LIRCInitError('%s has not been initialised.' % self.__name__)
+ *             raise LIRCInitError('%s has not been initialized.' % self.__name__)
  */
 
   /* function exit code */
@@ -2674,7 +2694,7 @@ static PyObject *__pyx_pf_7aiolirc_6client_10LIRCClient_4_ensure_init(struct __p
   return __pyx_r;
 }
 
-/* "aiolirc/client.pyx":125
+/* "aiolirc/client.pyx":126
  *     # Lock
  *     @property
  *     def _lock(LIRCClient self not None):             # <<<<<<<<<<<<<<
@@ -2689,7 +2709,7 @@ static PyObject *__pyx_pw_7aiolirc_6client_10LIRCClient_5_lock_1__get__(PyObject
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   if (unlikely(((PyObject *)__pyx_v_self) == Py_None)) {
-    PyErr_Format(PyExc_TypeError, "Argument '%.200s' must not be None", "self"); __PYX_ERR(0, 125, __pyx_L1_error)
+    PyErr_Format(PyExc_TypeError, "Argument '%.200s' must not be None", "self"); __PYX_ERR(0, 126, __pyx_L1_error)
   }
   __pyx_r = __pyx_pf_7aiolirc_6client_10LIRCClient_5_lock___get__(((struct __pyx_obj_7aiolirc_6client_LIRCClient *)__pyx_v_self));
 
@@ -2709,14 +2729,14 @@ static PyObject *__pyx_pf_7aiolirc_6client_10LIRCClient_5_lock___get__(struct __
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "aiolirc/client.pyx":126
+  /* "aiolirc/client.pyx":127
  *     @property
  *     def _lock(LIRCClient self not None):
  *         key = (self.lircrc_prog, self)             # <<<<<<<<<<<<<<
  *         return
  * 
  */
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 126, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 127, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_v_self->lircrc_prog);
   __Pyx_GIVEREF(__pyx_v_self->lircrc_prog);
@@ -2727,7 +2747,7 @@ static PyObject *__pyx_pf_7aiolirc_6client_10LIRCClient_5_lock___get__(struct __
   __pyx_v_key = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "aiolirc/client.pyx":127
+  /* "aiolirc/client.pyx":128
  *     def _lock(LIRCClient self not None):
  *         key = (self.lircrc_prog, self)
  *         return             # <<<<<<<<<<<<<<
@@ -2738,7 +2758,7 @@ static PyObject *__pyx_pf_7aiolirc_6client_10LIRCClient_5_lock___get__(struct __
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
 
-  /* "aiolirc/client.pyx":125
+  /* "aiolirc/client.pyx":126
  *     # Lock
  *     @property
  *     def _lock(LIRCClient self not None):             # <<<<<<<<<<<<<<
@@ -2759,7 +2779,7 @@ static PyObject *__pyx_pf_7aiolirc_6client_10LIRCClient_5_lock___get__(struct __
 }
 static PyObject *__pyx_gb_7aiolirc_6client_10LIRCClient_8generator(__pyx_CoroutineObject *__pyx_generator, PyObject *__pyx_sent_value); /* proto */
 
-/* "aiolirc/client.pyx":130
+/* "aiolirc/client.pyx":131
  * 
  *     # Asynchronous Context Manager
  *     async def __aenter__(LIRCClient self not None):             # <<<<<<<<<<<<<<
@@ -2774,7 +2794,7 @@ static PyObject *__pyx_pw_7aiolirc_6client_10LIRCClient_7__aenter__(PyObject *__
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__aenter__ (wrapper)", 0);
   if (unlikely(((PyObject *)__pyx_v_self) == Py_None)) {
-    PyErr_Format(PyExc_TypeError, "Argument '%.200s' must not be None", "self"); __PYX_ERR(0, 130, __pyx_L1_error)
+    PyErr_Format(PyExc_TypeError, "Argument '%.200s' must not be None", "self"); __PYX_ERR(0, 131, __pyx_L1_error)
   }
   __pyx_r = __pyx_pf_7aiolirc_6client_10LIRCClient_6__aenter__(((struct __pyx_obj_7aiolirc_6client_LIRCClient *)__pyx_v_self));
 
@@ -2802,7 +2822,7 @@ static PyObject *__pyx_pf_7aiolirc_6client_10LIRCClient_6__aenter__(struct __pyx
   __Pyx_INCREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_7aiolirc_6client_10LIRCClient_8generator, (PyObject *) __pyx_cur_scope, __pyx_n_s_aenter, __pyx_n_s_LIRCClient___aenter, __pyx_n_s_aiolirc_client); if (unlikely(!gen)) __PYX_ERR(0, 130, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_7aiolirc_6client_10LIRCClient_8generator, (PyObject *) __pyx_cur_scope, __pyx_n_s_aenter, __pyx_n_s_LIRCClient___aenter, __pyx_n_s_aiolirc_client); if (unlikely(!gen)) __PYX_ERR(0, 131, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -2834,16 +2854,16 @@ static PyObject *__pyx_gb_7aiolirc_6client_10LIRCClient_8generator(__pyx_Corouti
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 130, __pyx_L1_error)
+  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 131, __pyx_L1_error)
 
-  /* "aiolirc/client.pyx":131
+  /* "aiolirc/client.pyx":132
  *     # Asynchronous Context Manager
  *     async def __aenter__(LIRCClient self not None):
  *         self._ensure_async()             # <<<<<<<<<<<<<<
  *         self.lirc_init()
  *         return self
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_cur_scope->__pyx_v_self), __pyx_n_s_ensure_async); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 131, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_cur_scope->__pyx_v_self), __pyx_n_s_ensure_async); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 132, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -2856,16 +2876,16 @@ static PyObject *__pyx_gb_7aiolirc_6client_10LIRCClient_8generator(__pyx_Corouti
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 131, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 132, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 131, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 132, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "aiolirc/client.pyx":132
+  /* "aiolirc/client.pyx":133
  *     async def __aenter__(LIRCClient self not None):
  *         self._ensure_async()
  *         self.lirc_init()             # <<<<<<<<<<<<<<
@@ -2874,7 +2894,7 @@ static PyObject *__pyx_gb_7aiolirc_6client_10LIRCClient_8generator(__pyx_Corouti
  */
   ((struct __pyx_vtabstruct_7aiolirc_6client_LIRCClient *)__pyx_cur_scope->__pyx_v_self->__pyx_vtab)->lirc_init(__pyx_cur_scope->__pyx_v_self);
 
-  /* "aiolirc/client.pyx":133
+  /* "aiolirc/client.pyx":134
  *         self._ensure_async()
  *         self.lirc_init()
  *         return self             # <<<<<<<<<<<<<<
@@ -2885,7 +2905,7 @@ static PyObject *__pyx_gb_7aiolirc_6client_10LIRCClient_8generator(__pyx_Corouti
   __pyx_r = NULL; __Pyx_ReturnWithStopIteration(((PyObject *)__pyx_cur_scope->__pyx_v_self));
   goto __pyx_L0;
 
-  /* "aiolirc/client.pyx":130
+  /* "aiolirc/client.pyx":131
  * 
  *     # Asynchronous Context Manager
  *     async def __aenter__(LIRCClient self not None):             # <<<<<<<<<<<<<<
@@ -2908,7 +2928,7 @@ static PyObject *__pyx_gb_7aiolirc_6client_10LIRCClient_8generator(__pyx_Corouti
 }
 static PyObject *__pyx_gb_7aiolirc_6client_10LIRCClient_11generator1(__pyx_CoroutineObject *__pyx_generator, PyObject *__pyx_sent_value); /* proto */
 
-/* "aiolirc/client.pyx":135
+/* "aiolirc/client.pyx":136
  *         return self
  * 
  *     async def __aexit__(LIRCClient self not None, exc_type, exc_val, exc_tb):             # <<<<<<<<<<<<<<
@@ -2946,16 +2966,16 @@ static PyObject *__pyx_pw_7aiolirc_6client_10LIRCClient_10__aexit__(PyObject *__
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_exc_val)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__aexit__", 1, 3, 3, 1); __PYX_ERR(0, 135, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__aexit__", 1, 3, 3, 1); __PYX_ERR(0, 136, __pyx_L3_error)
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_exc_tb)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__aexit__", 1, 3, 3, 2); __PYX_ERR(0, 135, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__aexit__", 1, 3, 3, 2); __PYX_ERR(0, 136, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__aexit__") < 0)) __PYX_ERR(0, 135, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__aexit__") < 0)) __PYX_ERR(0, 136, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -2970,14 +2990,14 @@ static PyObject *__pyx_pw_7aiolirc_6client_10LIRCClient_10__aexit__(PyObject *__
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__aexit__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 135, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__aexit__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 136, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("aiolirc.client.LIRCClient.__aexit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(((PyObject *)__pyx_v_self) == Py_None)) {
-    PyErr_Format(PyExc_TypeError, "Argument '%.200s' must not be None", "self"); __PYX_ERR(0, 135, __pyx_L1_error)
+    PyErr_Format(PyExc_TypeError, "Argument '%.200s' must not be None", "self"); __PYX_ERR(0, 136, __pyx_L1_error)
   }
   __pyx_r = __pyx_pf_7aiolirc_6client_10LIRCClient_9__aexit__(((struct __pyx_obj_7aiolirc_6client_LIRCClient *)__pyx_v_self), __pyx_v_exc_type, __pyx_v_exc_val, __pyx_v_exc_tb);
 
@@ -3014,7 +3034,7 @@ static PyObject *__pyx_pf_7aiolirc_6client_10LIRCClient_9__aexit__(struct __pyx_
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_exc_tb);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_exc_tb);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_7aiolirc_6client_10LIRCClient_11generator1, (PyObject *) __pyx_cur_scope, __pyx_n_s_aexit, __pyx_n_s_LIRCClient___aexit, __pyx_n_s_aiolirc_client); if (unlikely(!gen)) __PYX_ERR(0, 135, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_7aiolirc_6client_10LIRCClient_11generator1, (PyObject *) __pyx_cur_scope, __pyx_n_s_aexit, __pyx_n_s_LIRCClient___aexit, __pyx_n_s_aiolirc_client); if (unlikely(!gen)) __PYX_ERR(0, 136, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -3043,9 +3063,9 @@ static PyObject *__pyx_gb_7aiolirc_6client_10LIRCClient_11generator1(__pyx_Corou
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 135, __pyx_L1_error)
+  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 136, __pyx_L1_error)
 
-  /* "aiolirc/client.pyx":136
+  /* "aiolirc/client.pyx":137
  * 
  *     async def __aexit__(LIRCClient self not None, exc_type, exc_val, exc_tb):
  *         self.lirc_deinit()             # <<<<<<<<<<<<<<
@@ -3054,7 +3074,7 @@ static PyObject *__pyx_gb_7aiolirc_6client_10LIRCClient_11generator1(__pyx_Corou
  */
   ((struct __pyx_vtabstruct_7aiolirc_6client_LIRCClient *)__pyx_cur_scope->__pyx_v_self->__pyx_vtab)->lirc_deinit(__pyx_cur_scope->__pyx_v_self);
 
-  /* "aiolirc/client.pyx":135
+  /* "aiolirc/client.pyx":136
  *         return self
  * 
  *     async def __aexit__(LIRCClient self not None, exc_type, exc_val, exc_tb):             # <<<<<<<<<<<<<<
@@ -3075,12 +3095,12 @@ static PyObject *__pyx_gb_7aiolirc_6client_10LIRCClient_11generator1(__pyx_Corou
   return __pyx_r;
 }
 
-/* "aiolirc/client.pyx":139
+/* "aiolirc/client.pyx":140
  * 
  *     # Asynchronous Iterator
  *     def __aiter__(LIRCClient self not None):             # <<<<<<<<<<<<<<
  *         self._ensure_async()
- *         return self
+ *         return aiter_compat(self)
  */
 
 /* Python wrapper */
@@ -3090,7 +3110,7 @@ static PyObject *__pyx_pw_7aiolirc_6client_10LIRCClient_13__aiter__(PyObject *__
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__aiter__ (wrapper)", 0);
   if (unlikely(((PyObject *)__pyx_v_self) == Py_None)) {
-    PyErr_Format(PyExc_TypeError, "Argument '%.200s' must not be None", "self"); __PYX_ERR(0, 139, __pyx_L1_error)
+    PyErr_Format(PyExc_TypeError, "Argument '%.200s' must not be None", "self"); __PYX_ERR(0, 140, __pyx_L1_error)
   }
   __pyx_r = __pyx_pf_7aiolirc_6client_10LIRCClient_12__aiter__(((struct __pyx_obj_7aiolirc_6client_LIRCClient *)__pyx_v_self));
 
@@ -3109,16 +3129,17 @@ static PyObject *__pyx_pf_7aiolirc_6client_10LIRCClient_12__aiter__(struct __pyx
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
   __Pyx_RefNannySetupContext("__aiter__", 0);
 
-  /* "aiolirc/client.pyx":140
+  /* "aiolirc/client.pyx":141
  *     # Asynchronous Iterator
  *     def __aiter__(LIRCClient self not None):
  *         self._ensure_async()             # <<<<<<<<<<<<<<
- *         return self
+ *         return aiter_compat(self)
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ensure_async); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 140, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ensure_async); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 141, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -3131,33 +3152,60 @@ static PyObject *__pyx_pf_7aiolirc_6client_10LIRCClient_12__aiter__(struct __pyx
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 140, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 141, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 140, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 141, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "aiolirc/client.pyx":141
+  /* "aiolirc/client.pyx":142
  *     def __aiter__(LIRCClient self not None):
  *         self._ensure_async()
- *         return self             # <<<<<<<<<<<<<<
+ *         return aiter_compat(self)             # <<<<<<<<<<<<<<
  * 
  *     async def __anext__(LIRCClient self not None):
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_INCREF(((PyObject *)__pyx_v_self));
-  __pyx_r = ((PyObject *)__pyx_v_self);
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_aiter_compat); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 142, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = NULL;
+  if (CYTHON_COMPILING_IN_CPYTHON && unlikely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
+    }
+  }
+  if (!__pyx_t_3) {
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, ((PyObject *)__pyx_v_self)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 142, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  } else {
+    __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 142, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3); __pyx_t_3 = NULL;
+    __Pyx_INCREF(((PyObject *)__pyx_v_self));
+    __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
+    PyTuple_SET_ITEM(__pyx_t_4, 0+1, ((PyObject *)__pyx_v_self));
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 142, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  }
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "aiolirc/client.pyx":139
+  /* "aiolirc/client.pyx":140
  * 
  *     # Asynchronous Iterator
  *     def __aiter__(LIRCClient self not None):             # <<<<<<<<<<<<<<
  *         self._ensure_async()
- *         return self
+ *         return aiter_compat(self)
  */
 
   /* function exit code */
@@ -3165,6 +3213,7 @@ static PyObject *__pyx_pf_7aiolirc_6client_10LIRCClient_12__aiter__(struct __pyx
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
   __Pyx_AddTraceback("aiolirc.client.LIRCClient.__aiter__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -3174,8 +3223,8 @@ static PyObject *__pyx_pf_7aiolirc_6client_10LIRCClient_12__aiter__(struct __pyx
 }
 static PyObject *__pyx_gb_7aiolirc_6client_10LIRCClient_16generator2(__pyx_CoroutineObject *__pyx_generator, PyObject *__pyx_sent_value); /* proto */
 
-/* "aiolirc/client.pyx":143
- *         return self
+/* "aiolirc/client.pyx":144
+ *         return aiter_compat(self)
  * 
  *     async def __anext__(LIRCClient self not None):             # <<<<<<<<<<<<<<
  *         while True:
@@ -3189,7 +3238,7 @@ static PyObject *__pyx_pw_7aiolirc_6client_10LIRCClient_15__anext__(PyObject *__
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__anext__ (wrapper)", 0);
   if (unlikely(((PyObject *)__pyx_v_self) == Py_None)) {
-    PyErr_Format(PyExc_TypeError, "Argument '%.200s' must not be None", "self"); __PYX_ERR(0, 143, __pyx_L1_error)
+    PyErr_Format(PyExc_TypeError, "Argument '%.200s' must not be None", "self"); __PYX_ERR(0, 144, __pyx_L1_error)
   }
   __pyx_r = __pyx_pf_7aiolirc_6client_10LIRCClient_14__anext__(((struct __pyx_obj_7aiolirc_6client_LIRCClient *)__pyx_v_self));
 
@@ -3217,7 +3266,7 @@ static PyObject *__pyx_pf_7aiolirc_6client_10LIRCClient_14__anext__(struct __pyx
   __Pyx_INCREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_7aiolirc_6client_10LIRCClient_16generator2, (PyObject *) __pyx_cur_scope, __pyx_n_s_anext, __pyx_n_s_LIRCClient___anext, __pyx_n_s_aiolirc_client); if (unlikely(!gen)) __PYX_ERR(0, 143, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_7aiolirc_6client_10LIRCClient_16generator2, (PyObject *) __pyx_cur_scope, __pyx_n_s_anext, __pyx_n_s_LIRCClient___anext, __pyx_n_s_aiolirc_client); if (unlikely(!gen)) __PYX_ERR(0, 144, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -3253,9 +3302,9 @@ static PyObject *__pyx_gb_7aiolirc_6client_10LIRCClient_16generator2(__pyx_Corou
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 143, __pyx_L1_error)
+  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 144, __pyx_L1_error)
 
-  /* "aiolirc/client.pyx":144
+  /* "aiolirc/client.pyx":145
  * 
  *     async def __anext__(LIRCClient self not None):
  *         while True:             # <<<<<<<<<<<<<<
@@ -3264,21 +3313,21 @@ static PyObject *__pyx_gb_7aiolirc_6client_10LIRCClient_16generator2(__pyx_Corou
  */
   while (1) {
 
-    /* "aiolirc/client.pyx":145
+    /* "aiolirc/client.pyx":146
  *     async def __anext__(LIRCClient self not None):
  *         while True:
  *             command = self.lirc_nextcode()             # <<<<<<<<<<<<<<
  *             if command is None:
  *                 asyncio.sleep(self.check_interval)
  */
-    __pyx_t_1 = ((struct __pyx_vtabstruct_7aiolirc_6client_LIRCClient *)__pyx_cur_scope->__pyx_v_self->__pyx_vtab)->lirc_nextcode(__pyx_cur_scope->__pyx_v_self); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 145, __pyx_L1_error)
+    __pyx_t_1 = ((struct __pyx_vtabstruct_7aiolirc_6client_LIRCClient *)__pyx_cur_scope->__pyx_v_self->__pyx_vtab)->lirc_nextcode(__pyx_cur_scope->__pyx_v_self); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 146, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_command);
     __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_command, ((PyObject*)__pyx_t_1));
     __Pyx_GIVEREF(__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "aiolirc/client.pyx":146
+    /* "aiolirc/client.pyx":147
  *         while True:
  *             command = self.lirc_nextcode()
  *             if command is None:             # <<<<<<<<<<<<<<
@@ -3289,19 +3338,19 @@ static PyObject *__pyx_gb_7aiolirc_6client_10LIRCClient_16generator2(__pyx_Corou
     __pyx_t_3 = (__pyx_t_2 != 0);
     if (__pyx_t_3) {
 
-      /* "aiolirc/client.pyx":147
+      /* "aiolirc/client.pyx":148
  *             command = self.lirc_nextcode()
  *             if command is None:
  *                 asyncio.sleep(self.check_interval)             # <<<<<<<<<<<<<<
  *                 continue
  *             else:
  */
-      __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_asyncio); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 147, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_asyncio); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 148, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_sleep); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 147, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_sleep); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 148, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_4 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_self->check_interval); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 147, __pyx_L1_error)
+      __pyx_t_4 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_self->check_interval); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 148, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_6 = NULL;
       if (CYTHON_COMPILING_IN_CPYTHON && unlikely(PyMethod_Check(__pyx_t_5))) {
@@ -3314,24 +3363,24 @@ static PyObject *__pyx_gb_7aiolirc_6client_10LIRCClient_16generator2(__pyx_Corou
         }
       }
       if (!__pyx_t_6) {
-        __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 147, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 148, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_GOTREF(__pyx_t_1);
       } else {
-        __pyx_t_7 = PyTuple_New(1+1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 147, __pyx_L1_error)
+        __pyx_t_7 = PyTuple_New(1+1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 148, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_6); __pyx_t_6 = NULL;
         __Pyx_GIVEREF(__pyx_t_4);
         PyTuple_SET_ITEM(__pyx_t_7, 0+1, __pyx_t_4);
         __pyx_t_4 = 0;
-        __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 147, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 148, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       }
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "aiolirc/client.pyx":148
+      /* "aiolirc/client.pyx":149
  *             if command is None:
  *                 asyncio.sleep(self.check_interval)
  *                 continue             # <<<<<<<<<<<<<<
@@ -3340,7 +3389,7 @@ static PyObject *__pyx_gb_7aiolirc_6client_10LIRCClient_16generator2(__pyx_Corou
  */
       goto __pyx_L4_continue;
 
-      /* "aiolirc/client.pyx":146
+      /* "aiolirc/client.pyx":147
  *         while True:
  *             command = self.lirc_nextcode()
  *             if command is None:             # <<<<<<<<<<<<<<
@@ -3349,7 +3398,7 @@ static PyObject *__pyx_gb_7aiolirc_6client_10LIRCClient_16generator2(__pyx_Corou
  */
     }
 
-    /* "aiolirc/client.pyx":150
+    /* "aiolirc/client.pyx":151
  *                 continue
  *             else:
  *                 return command             # <<<<<<<<<<<<<<
@@ -3362,8 +3411,8 @@ static PyObject *__pyx_gb_7aiolirc_6client_10LIRCClient_16generator2(__pyx_Corou
     __pyx_L4_continue:;
   }
 
-  /* "aiolirc/client.pyx":143
- *         return self
+  /* "aiolirc/client.pyx":144
+ *         return aiter_compat(self)
  * 
  *     async def __anext__(LIRCClient self not None):             # <<<<<<<<<<<<<<
  *         while True:
@@ -3388,7 +3437,7 @@ static PyObject *__pyx_gb_7aiolirc_6client_10LIRCClient_16generator2(__pyx_Corou
   return __pyx_r;
 }
 
-/* "aiolirc/client.pyx":21
+/* "aiolirc/client.pyx":22
  * cdef class LIRCClient(object):
  *     cdef:
  *         public unicode lircrc_file, lircrc_prog             # <<<<<<<<<<<<<<
@@ -3443,7 +3492,7 @@ static int __pyx_pf_7aiolirc_6client_10LIRCClient_11lircrc_file_2__set__(struct 
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__set__", 0);
-  if (!(likely(PyUnicode_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(__pyx_v_value)->tp_name), 0))) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (!(likely(PyUnicode_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(__pyx_v_value)->tp_name), 0))) __PYX_ERR(0, 22, __pyx_L1_error)
   __pyx_t_1 = __pyx_v_value;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
@@ -3540,7 +3589,7 @@ static int __pyx_pf_7aiolirc_6client_10LIRCClient_11lircrc_prog_2__set__(struct 
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__set__", 0);
-  if (!(likely(PyUnicode_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(__pyx_v_value)->tp_name), 0))) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (!(likely(PyUnicode_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(__pyx_v_value)->tp_name), 0))) __PYX_ERR(0, 22, __pyx_L1_error)
   __pyx_t_1 = __pyx_v_value;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
@@ -3590,7 +3639,7 @@ static int __pyx_pf_7aiolirc_6client_10LIRCClient_11lircrc_prog_4__del__(struct 
   return __pyx_r;
 }
 
-/* "aiolirc/client.pyx":22
+/* "aiolirc/client.pyx":23
  *     cdef:
  *         public unicode lircrc_file, lircrc_prog
  *         public float check_interval             # <<<<<<<<<<<<<<
@@ -3617,7 +3666,7 @@ static PyObject *__pyx_pf_7aiolirc_6client_10LIRCClient_14check_interval___get__
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->check_interval); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->check_interval); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3652,7 +3701,7 @@ static int __pyx_pf_7aiolirc_6client_10LIRCClient_14check_interval_2__set__(stru
   __Pyx_RefNannyDeclarations
   float __pyx_t_1;
   __Pyx_RefNannySetupContext("__set__", 0);
-  __pyx_t_1 = __pyx_PyFloat_AsFloat(__pyx_v_value); if (unlikely((__pyx_t_1 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_1 = __pyx_PyFloat_AsFloat(__pyx_v_value); if (unlikely((__pyx_t_1 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 23, __pyx_L1_error)
   __pyx_v_self->check_interval = __pyx_t_1;
 
   /* function exit code */
@@ -3666,7 +3715,7 @@ static int __pyx_pf_7aiolirc_6client_10LIRCClient_14check_interval_2__set__(stru
   return __pyx_r;
 }
 
-/* "aiolirc/client.pyx":23
+/* "aiolirc/client.pyx":24
  *         public unicode lircrc_file, lircrc_prog
  *         public float check_interval
  *         public bint verbose, _blocking             # <<<<<<<<<<<<<<
@@ -3693,7 +3742,7 @@ static PyObject *__pyx_pf_7aiolirc_6client_10LIRCClient_7verbose___get__(struct 
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->verbose); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->verbose); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3728,7 +3777,7 @@ static int __pyx_pf_7aiolirc_6client_10LIRCClient_7verbose_2__set__(struct __pyx
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("__set__", 0);
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 24, __pyx_L1_error)
   __pyx_v_self->verbose = __pyx_t_1;
 
   /* function exit code */
@@ -3761,7 +3810,7 @@ static PyObject *__pyx_pf_7aiolirc_6client_10LIRCClient_9_blocking___get__(struc
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->_blocking); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->_blocking); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3796,7 +3845,7 @@ static int __pyx_pf_7aiolirc_6client_10LIRCClient_9_blocking_2__set__(struct __p
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("__set__", 0);
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 24, __pyx_L1_error)
   __pyx_v_self->_blocking = __pyx_t_1;
 
   /* function exit code */
@@ -3810,7 +3859,7 @@ static int __pyx_pf_7aiolirc_6client_10LIRCClient_9_blocking_2__set__(struct __p
   return __pyx_r;
 }
 
-/* "aiolirc/client.pyx":24
+/* "aiolirc/client.pyx":25
  *         public float check_interval
  *         public bint verbose, _blocking
  *         public object _loop             # <<<<<<<<<<<<<<
@@ -3905,7 +3954,7 @@ static int __pyx_pf_7aiolirc_6client_10LIRCClient_5_loop_4__del__(struct __pyx_o
   return __pyx_r;
 }
 
-/* "aiolirc/client.pyx":25
+/* "aiolirc/client.pyx":26
  *         public bint verbose, _blocking
  *         public object _loop
  *         public int _lirc_socket             # <<<<<<<<<<<<<<
@@ -3932,7 +3981,7 @@ static PyObject *__pyx_pf_7aiolirc_6client_10LIRCClient_12_lirc_socket___get__(s
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->_lirc_socket); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->_lirc_socket); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 26, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3967,7 +4016,7 @@ static int __pyx_pf_7aiolirc_6client_10LIRCClient_12_lirc_socket_2__set__(struct
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("__set__", 0);
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 26, __pyx_L1_error)
   __pyx_v_self->_lirc_socket = __pyx_t_1;
 
   /* function exit code */
@@ -4602,16 +4651,18 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_LIRCNextCodeError, __pyx_k_LIRCNextCodeError, sizeof(__pyx_k_LIRCNextCodeError), 0, 0, 1, 1},
   {&__pyx_kp_s_There_was_an_error_reading_the_n, __pyx_k_There_was_an_error_reading_the_n, sizeof(__pyx_k_There_was_an_error_reading_the_n), 0, 0, 1, 0},
   {&__pyx_n_s_TranslateDone, __pyx_k_TranslateDone, sizeof(__pyx_k_TranslateDone), 0, 0, 1, 1},
-  {&__pyx_kp_s_Unable_to_de_initialise_lirc, __pyx_k_Unable_to_de_initialise_lirc, sizeof(__pyx_k_Unable_to_de_initialise_lirc), 0, 0, 1, 0},
-  {&__pyx_kp_s_Unable_to_initialise_lirc_socket, __pyx_k_Unable_to_initialise_lirc_socket, sizeof(__pyx_k_Unable_to_initialise_lirc_socket), 0, 0, 1, 0},
+  {&__pyx_kp_s_Unable_to_de_initialize_lirc, __pyx_k_Unable_to_de_initialize_lirc, sizeof(__pyx_k_Unable_to_de_initialize_lirc), 0, 0, 1, 0},
+  {&__pyx_kp_s_Unable_to_initialize_lirc_socket, __pyx_k_Unable_to_initialize_lirc_socket, sizeof(__pyx_k_Unable_to_initialize_lirc_socket), 0, 0, 1, 0},
   {&__pyx_n_s_UserWarning, __pyx_k_UserWarning, sizeof(__pyx_k_UserWarning), 0, 0, 1, 1},
   {&__pyx_n_s_add_config_file, __pyx_k_add_config_file, sizeof(__pyx_k_add_config_file), 0, 0, 1, 1},
   {&__pyx_n_s_aenter, __pyx_k_aenter, sizeof(__pyx_k_aenter), 0, 0, 1, 1},
   {&__pyx_n_s_aexit, __pyx_k_aexit, sizeof(__pyx_k_aexit), 0, 0, 1, 1},
   {&__pyx_n_s_aiolirc_client, __pyx_k_aiolirc_client, sizeof(__pyx_k_aiolirc_client), 0, 0, 1, 1},
+  {&__pyx_n_s_aiolirc_compat, __pyx_k_aiolirc_compat, sizeof(__pyx_k_aiolirc_compat), 0, 0, 1, 1},
   {&__pyx_n_s_aiolirc_config, __pyx_k_aiolirc_config, sizeof(__pyx_k_aiolirc_config), 0, 0, 1, 1},
   {&__pyx_n_s_aiolirc_constants, __pyx_k_aiolirc_constants, sizeof(__pyx_k_aiolirc_constants), 0, 0, 1, 1},
   {&__pyx_n_s_aiolirc_exceptions, __pyx_k_aiolirc_exceptions, sizeof(__pyx_k_aiolirc_exceptions), 0, 0, 1, 1},
+  {&__pyx_n_s_aiter_compat, __pyx_k_aiter_compat, sizeof(__pyx_k_aiter_compat), 0, 0, 1, 1},
   {&__pyx_n_s_anext, __pyx_k_anext, sizeof(__pyx_k_anext), 0, 0, 1, 1},
   {&__pyx_n_s_args, __pyx_k_args, sizeof(__pyx_k_args), 0, 0, 1, 1},
   {&__pyx_n_s_asyncio, __pyx_k_asyncio, sizeof(__pyx_k_asyncio), 0, 0, 1, 1},
@@ -4638,7 +4689,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_max_stack_size, __pyx_k_max_stack_size, sizeof(__pyx_k_max_stack_size), 0, 0, 1, 1},
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_vtable, __pyx_k_pyx_vtable, sizeof(__pyx_k_pyx_vtable), 0, 0, 1, 1},
-  {&__pyx_kp_s_s_has_not_been_initialised, __pyx_k_s_has_not_been_initialised, sizeof(__pyx_k_s_has_not_been_initialised), 0, 0, 1, 0},
+  {&__pyx_kp_s_s_has_not_been_initialized, __pyx_k_s_has_not_been_initialized, sizeof(__pyx_k_s_has_not_been_initialized), 0, 0, 1, 0},
   {&__pyx_n_s_send, __pyx_k_send, sizeof(__pyx_k_send), 0, 0, 1, 1},
   {&__pyx_n_s_sleep, __pyx_k_sleep, sizeof(__pyx_k_sleep), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
@@ -4648,7 +4699,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_UserWarning = __Pyx_GetBuiltinName(__pyx_n_s_UserWarning); if (!__pyx_builtin_UserWarning) __PYX_ERR(0, 67, __pyx_L1_error)
+  __pyx_builtin_UserWarning = __Pyx_GetBuiltinName(__pyx_n_s_UserWarning); if (!__pyx_builtin_UserWarning) __PYX_ERR(0, 68, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -4658,47 +4709,47 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "aiolirc/client.pyx":74
+  /* "aiolirc/client.pyx":75
  *         self._lirc_socket = c_lirc_client.lirc_init(b_program_name, self.verbose)
  *         if self._lirc_socket == -1:
- *             raise LIRCInitError("Unable to initialise lirc (socket was -1 from C library).")             # <<<<<<<<<<<<<<
+ *             raise LIRCInitError("Unable to initialize lirc (socket was -1 from C library).")             # <<<<<<<<<<<<<<
  * 
  *         # Configure blocking
  */
-  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_s_Unable_to_initialise_lirc_socket); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 74, __pyx_L1_error)
+  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_s_Unable_to_initialize_lirc_socket); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 75, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
 
-  /* "aiolirc/client.pyx":93
+  /* "aiolirc/client.pyx":94
  * 
  *         if c_lirc_client.lirc_deinit() == -1:
- *             raise LIRCDeinitError("Unable to de-initialise lirc.")             # <<<<<<<<<<<<<<
+ *             raise LIRCDeinitError("Unable to de-initialize lirc.")             # <<<<<<<<<<<<<<
  * 
  *         lircrc_config = None
  */
-  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_s_Unable_to_de_initialise_lirc); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 93, __pyx_L1_error)
+  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_s_Unable_to_de_initialize_lirc); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
-  /* "aiolirc/client.pyx":103
+  /* "aiolirc/client.pyx":104
  *         try:
  *             if c_lirc_client.lirc_nextcode(&code) == -1:  # Error !
  *                 raise LIRCNextCodeError("There was an error reading the next code.")             # <<<<<<<<<<<<<<
  * 
  *             if code == NULL:
  */
-  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_s_There_was_an_error_reading_the_n); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 103, __pyx_L1_error)
+  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_s_There_was_an_error_reading_the_n); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 104, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
 
-  /* "aiolirc/client.pyx":116
+  /* "aiolirc/client.pyx":117
  *     def _ensure_async(LIRCClient self not None):
  *         if self._blocking:
  *             raise LIRCAbuseError(             # <<<<<<<<<<<<<<
  *                 'Cannot use `Asynchronous Iterator` and `Asynchronous Context Manager` when blocking is True.')
  * 
  */
-  __pyx_tuple__4 = PyTuple_Pack(1, __pyx_kp_s_Cannot_use_Asynchronous_Iterator); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 116, __pyx_L1_error)
+  __pyx_tuple__4 = PyTuple_Pack(1, __pyx_kp_s_Cannot_use_Asynchronous_Iterator); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 117, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__4);
   __Pyx_GIVEREF(__pyx_tuple__4);
   __Pyx_RefNannyFinishContext();
@@ -4813,18 +4864,18 @@ PyMODINIT_FUNC PyInit_client(void)
   __pyx_vtable_7aiolirc_6client_LIRCClient.lirc_init = (void (*)(struct __pyx_obj_7aiolirc_6client_LIRCClient *))__pyx_f_7aiolirc_6client_10LIRCClient_lirc_init;
   __pyx_vtable_7aiolirc_6client_LIRCClient.lirc_deinit = (void (*)(struct __pyx_obj_7aiolirc_6client_LIRCClient *))__pyx_f_7aiolirc_6client_10LIRCClient_lirc_deinit;
   __pyx_vtable_7aiolirc_6client_LIRCClient.lirc_nextcode = (PyObject *(*)(struct __pyx_obj_7aiolirc_6client_LIRCClient *))__pyx_f_7aiolirc_6client_10LIRCClient_lirc_nextcode;
-  if (PyType_Ready(&__pyx_type_7aiolirc_6client_LIRCClient) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_7aiolirc_6client_LIRCClient) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
   __pyx_type_7aiolirc_6client_LIRCClient.tp_print = 0;
-  if (__Pyx_SetVtable(__pyx_type_7aiolirc_6client_LIRCClient.tp_dict, __pyx_vtabptr_7aiolirc_6client_LIRCClient) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
-  if (PyObject_SetAttrString(__pyx_m, "LIRCClient", (PyObject *)&__pyx_type_7aiolirc_6client_LIRCClient) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_7aiolirc_6client_LIRCClient.tp_dict, __pyx_vtabptr_7aiolirc_6client_LIRCClient) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
+  if (PyObject_SetAttrString(__pyx_m, "LIRCClient", (PyObject *)&__pyx_type_7aiolirc_6client_LIRCClient) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
   __pyx_ptype_7aiolirc_6client_LIRCClient = &__pyx_type_7aiolirc_6client_LIRCClient;
-  if (PyType_Ready(&__pyx_type_7aiolirc_6client___pyx_scope_struct____aenter__) < 0) __PYX_ERR(0, 130, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_7aiolirc_6client___pyx_scope_struct____aenter__) < 0) __PYX_ERR(0, 131, __pyx_L1_error)
   __pyx_type_7aiolirc_6client___pyx_scope_struct____aenter__.tp_print = 0;
   __pyx_ptype_7aiolirc_6client___pyx_scope_struct____aenter__ = &__pyx_type_7aiolirc_6client___pyx_scope_struct____aenter__;
-  if (PyType_Ready(&__pyx_type_7aiolirc_6client___pyx_scope_struct_1___aexit__) < 0) __PYX_ERR(0, 135, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_7aiolirc_6client___pyx_scope_struct_1___aexit__) < 0) __PYX_ERR(0, 136, __pyx_L1_error)
   __pyx_type_7aiolirc_6client___pyx_scope_struct_1___aexit__.tp_print = 0;
   __pyx_ptype_7aiolirc_6client___pyx_scope_struct_1___aexit__ = &__pyx_type_7aiolirc_6client___pyx_scope_struct_1___aexit__;
-  if (PyType_Ready(&__pyx_type_7aiolirc_6client___pyx_scope_struct_2___anext__) < 0) __PYX_ERR(0, 143, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_7aiolirc_6client___pyx_scope_struct_2___anext__) < 0) __PYX_ERR(0, 144, __pyx_L1_error)
   __pyx_type_7aiolirc_6client___pyx_scope_struct_2___anext__.tp_print = 0;
   __pyx_ptype_7aiolirc_6client___pyx_scope_struct_2___anext__ = &__pyx_type_7aiolirc_6client___pyx_scope_struct_2___anext__;
   /*--- Type import code ---*/
@@ -4855,95 +4906,116 @@ PyMODINIT_FUNC PyInit_client(void)
   /* "aiolirc/client.pyx":8
  * 
  * from aiolirc cimport c_lirc_client
- * from aiolirc.constants import ENCODING             # <<<<<<<<<<<<<<
+ * from aiolirc.compat import aiter_compat             # <<<<<<<<<<<<<<
+ * from aiolirc.constants import ENCODING
  * from aiolirc.exceptions import LIRCInitError, LIRCAbuseError, LIRCDeinitError, TranslateDone, LIRCNextCodeError
- * from aiolirc.config import LIRCConfig
  */
   __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_INCREF(__pyx_n_s_ENCODING);
-  __Pyx_GIVEREF(__pyx_n_s_ENCODING);
-  PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_ENCODING);
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_aiolirc_constants, __pyx_t_1, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __Pyx_INCREF(__pyx_n_s_aiter_compat);
+  __Pyx_GIVEREF(__pyx_n_s_aiter_compat);
+  PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_aiter_compat);
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_aiolirc_compat, __pyx_t_1, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_ENCODING); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_aiter_compat); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_ENCODING, __pyx_t_1) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_aiter_compat, __pyx_t_1) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "aiolirc/client.pyx":9
  * from aiolirc cimport c_lirc_client
+ * from aiolirc.compat import aiter_compat
+ * from aiolirc.constants import ENCODING             # <<<<<<<<<<<<<<
+ * from aiolirc.exceptions import LIRCInitError, LIRCAbuseError, LIRCDeinitError, TranslateDone, LIRCNextCodeError
+ * from aiolirc.config import LIRCConfig
+ */
+  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_INCREF(__pyx_n_s_ENCODING);
+  __Pyx_GIVEREF(__pyx_n_s_ENCODING);
+  PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_ENCODING);
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_aiolirc_constants, __pyx_t_2, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_ENCODING); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_ENCODING, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "aiolirc/client.pyx":10
+ * from aiolirc.compat import aiter_compat
  * from aiolirc.constants import ENCODING
  * from aiolirc.exceptions import LIRCInitError, LIRCAbuseError, LIRCDeinitError, TranslateDone, LIRCNextCodeError             # <<<<<<<<<<<<<<
  * from aiolirc.config import LIRCConfig
  * 
  */
-  __pyx_t_2 = PyList_New(5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_1 = PyList_New(5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_n_s_LIRCInitError);
   __Pyx_GIVEREF(__pyx_n_s_LIRCInitError);
-  PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_LIRCInitError);
+  PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_LIRCInitError);
   __Pyx_INCREF(__pyx_n_s_LIRCAbuseError);
   __Pyx_GIVEREF(__pyx_n_s_LIRCAbuseError);
-  PyList_SET_ITEM(__pyx_t_2, 1, __pyx_n_s_LIRCAbuseError);
+  PyList_SET_ITEM(__pyx_t_1, 1, __pyx_n_s_LIRCAbuseError);
   __Pyx_INCREF(__pyx_n_s_LIRCDeinitError);
   __Pyx_GIVEREF(__pyx_n_s_LIRCDeinitError);
-  PyList_SET_ITEM(__pyx_t_2, 2, __pyx_n_s_LIRCDeinitError);
+  PyList_SET_ITEM(__pyx_t_1, 2, __pyx_n_s_LIRCDeinitError);
   __Pyx_INCREF(__pyx_n_s_TranslateDone);
   __Pyx_GIVEREF(__pyx_n_s_TranslateDone);
-  PyList_SET_ITEM(__pyx_t_2, 3, __pyx_n_s_TranslateDone);
+  PyList_SET_ITEM(__pyx_t_1, 3, __pyx_n_s_TranslateDone);
   __Pyx_INCREF(__pyx_n_s_LIRCNextCodeError);
   __Pyx_GIVEREF(__pyx_n_s_LIRCNextCodeError);
-  PyList_SET_ITEM(__pyx_t_2, 4, __pyx_n_s_LIRCNextCodeError);
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_aiolirc_exceptions, __pyx_t_2, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_LIRCInitError); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
+  PyList_SET_ITEM(__pyx_t_1, 4, __pyx_n_s_LIRCNextCodeError);
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_aiolirc_exceptions, __pyx_t_1, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_LIRCInitError, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_LIRCAbuseError); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_LIRCAbuseError, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_LIRCDeinitError); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_LIRCDeinitError, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_TranslateDone); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_TranslateDone, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_LIRCNextCodeError); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_LIRCNextCodeError, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_LIRCInitError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_LIRCInitError, __pyx_t_1) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_LIRCAbuseError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_LIRCAbuseError, __pyx_t_1) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_LIRCDeinitError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_LIRCDeinitError, __pyx_t_1) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_TranslateDone); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_TranslateDone, __pyx_t_1) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_LIRCNextCodeError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_LIRCNextCodeError, __pyx_t_1) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "aiolirc/client.pyx":10
+  /* "aiolirc/client.pyx":11
  * from aiolirc.constants import ENCODING
  * from aiolirc.exceptions import LIRCInitError, LIRCAbuseError, LIRCDeinitError, TranslateDone, LIRCNextCodeError
  * from aiolirc.config import LIRCConfig             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_n_s_LIRCConfig);
   __Pyx_GIVEREF(__pyx_n_s_LIRCConfig);
-  PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_LIRCConfig);
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_aiolirc_config, __pyx_t_1, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_LIRCConfig); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
+  PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_LIRCConfig);
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_aiolirc_config, __pyx_t_2, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_LIRCConfig, __pyx_t_1) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_LIRCConfig); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_LIRCConfig, __pyx_t_2) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "aiolirc/client.pyx":13
+  /* "aiolirc/client.pyx":14
  * 
  * 
  * cdef object initialized = <bint>0             # <<<<<<<<<<<<<<
@@ -4955,41 +5027,41 @@ PyMODINIT_FUNC PyInit_client(void)
   __Pyx_DECREF_SET(__pyx_v_7aiolirc_6client_initialized, __pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
 
-  /* "aiolirc/client.pyx":14
+  /* "aiolirc/client.pyx":15
  * 
  * cdef object initialized = <bint>0
  * cdef object lircrc_config = None             # <<<<<<<<<<<<<<
  * 
- * cdef dict _locks = {}
+ * cdef dict _locks = {}  # TODO: lock
  */
   __Pyx_INCREF(Py_None);
   __Pyx_XGOTREF(__pyx_v_7aiolirc_6client_lircrc_config);
   __Pyx_DECREF_SET(__pyx_v_7aiolirc_6client_lircrc_config, Py_None);
   __Pyx_GIVEREF(Py_None);
 
-  /* "aiolirc/client.pyx":16
+  /* "aiolirc/client.pyx":17
  * cdef object lircrc_config = None
  * 
- * cdef dict _locks = {}             # <<<<<<<<<<<<<<
+ * cdef dict _locks = {}  # TODO: lock             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_2 = PyDict_New(); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
   __Pyx_XGOTREF(__pyx_v_7aiolirc_6client__locks);
-  __Pyx_DECREF_SET(__pyx_v_7aiolirc_6client__locks, ((PyObject*)__pyx_t_2));
-  __Pyx_GIVEREF(__pyx_t_2);
-  __pyx_t_2 = 0;
+  __Pyx_DECREF_SET(__pyx_v_7aiolirc_6client__locks, ((PyObject*)__pyx_t_1));
+  __Pyx_GIVEREF(__pyx_t_1);
+  __pyx_t_1 = 0;
 
   /* "aiolirc/client.pyx":1
  * import asyncio             # <<<<<<<<<<<<<<
  * 
  * from libc.stdlib cimport free
  */
-  __pyx_t_2 = PyDict_New(); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_2) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_1) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /*--- Wrapped vars code ---*/
 
