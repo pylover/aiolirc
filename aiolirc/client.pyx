@@ -138,7 +138,7 @@ cdef class LIRCClient(object):
         while True:
             command = self.lirc_nextcode()
             if command is None:
-                asyncio.sleep(self.check_interval)
+                await asyncio.sleep(self.check_interval)
                 continue
             else:
                 return command
