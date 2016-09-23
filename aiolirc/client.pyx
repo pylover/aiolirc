@@ -5,6 +5,7 @@ from posix cimport fcntl, unistd
 from cpython.exc cimport PyErr_WarnEx
 
 from aiolirc cimport c_lirc_client
+from aiolirc.compat import aiter_compat
 from aiolirc.constants import ENCODING
 from aiolirc.exceptions import LIRCInitError, LIRCAbuseError, LIRCDeinitError, TranslateDone, LIRCNextCodeError
 from aiolirc.config import LIRCConfig
@@ -13,7 +14,7 @@ from aiolirc.config import LIRCConfig
 cdef object initialized = <bint>0
 cdef object lircrc_config = None
 
-cdef dict _locks = {}
+cdef dict _locks = {}  # TODO: lock
 
 
 cdef class LIRCClient(object):
@@ -71,13 +72,13 @@ cdef class LIRCClient(object):
         b_program_name = self.lircrc_prog.encode(ENCODING)
         self._lirc_socket = c_lirc_client.lirc_init(b_program_name, self.verbose)
         if self._lirc_socket == -1:
-            raise LIRCInitError("Unable to initialise lirc (socket was -1 from C library).")
+            raise LIRCInitError("Unable to initialize lirc (socket was -1 from C library).")
 
         # Configure blocking
         self.update_blocking()
 
         # Setting the initialization lock flag
-        _initialised = True
+        initialized = True
 
         # Loading the lircrc file
         if self.lircrc_file is not None:
@@ -90,7 +91,7 @@ cdef class LIRCClient(object):
             return
 
         if c_lirc_client.lirc_deinit() == -1:
-            raise LIRCDeinitError("Unable to de-initialise lirc.")
+            raise LIRCDeinitError("Unable to de-initialize lirc.")
 
         lircrc_config = None
         initialized = False
@@ -118,7 +119,7 @@ cdef class LIRCClient(object):
 
     def _ensure_init(LIRCClient self not None):
         if not initialized:
-            raise LIRCInitError('%s has not been initialised.' % self.__name__)
+            raise LIRCInitError('%s has not been initialized.' % self.__name__)
 
     # Lock
     @property
@@ -136,6 +137,7 @@ cdef class LIRCClient(object):
         self.lirc_deinit()
 
     # Asynchronous Iterator
+    @aiter_compat
     def __aiter__(LIRCClient self not None):
         self._ensure_async()
         return self
