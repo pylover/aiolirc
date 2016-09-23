@@ -18,13 +18,6 @@ cdef dict _locks = {}  # TODO: lock
 
 
 cdef class LIRCClient(object):
-    cdef:
-        public unicode lircrc_file, lircrc_prog
-        public float check_interval
-        public bint verbose, _blocking
-        public object _loop
-        public int _lirc_socket
-
 
     def __init__(self, lircrc_prog, *, lircrc_file='~/.config/lircrc', loop=None, check_interval=.05, max_stack_size=10,
                  empty_skip=5, verbose=False, blocking=False):
