@@ -30,7 +30,7 @@ cdef class LIRCConfig:
         if self._c_lirc_config is NULL:
             raise LIRCLoadConfigError('Could not load the config file (%s)' % config_filename)
 
-    cdef unicode translate(LIRCConfig self, char * code):
+    cdef public unicode translate(LIRCConfig self, char * code):
         """
         Translate the (byte) string associated with the code in the lircrc config file
         """
