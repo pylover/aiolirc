@@ -98,7 +98,7 @@ cdef class LIRCClient(object):
 
     cdef unicode lirc_nextcode(LIRCClient self):
         global lircrc_config
-        cdef char * code
+        cdef char * code = NULL
         try:
             if c_lirc_client.lirc_nextcode(&code) == -1:  # Error !
                 raise LIRCNextCodeError("There was an error reading the next code.")
