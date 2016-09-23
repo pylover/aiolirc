@@ -1,6 +1,6 @@
 import asyncio
 
-from aiolirc.client import LIRCClient
+from aiolirc.lirc_client import LIRCClient
 
 
 async def main():

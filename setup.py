@@ -19,8 +19,7 @@ libraries = [
 ]
 
 extensions = [
-    Extension('aiolirc.client', ['aiolirc/client.pyx'], libraries=libraries),
-    Extension('aiolirc.config', ['aiolirc/config.pyx'], libraries=libraries),
+    Extension('aiolirc.lirc_client', ['aiolirc/client.pyx', 'aiolirc/config.pyx'], libraries=libraries),
 ]
 
 
