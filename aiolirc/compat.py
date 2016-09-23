@@ -6,8 +6,8 @@ import sys
 if sys.version_info < (3, 5, 2):
     def aiter_compat(instance):
         @functools.wraps(instance.__aiter__)
-        async def wrapper(self):
-            return self
+        async def wrapper():
+            return instance
         return wrapper()
 else:
     def aiter_compat(instance):
