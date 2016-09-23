@@ -137,10 +137,9 @@ cdef class LIRCClient(object):
         self.lirc_deinit()
 
     # Asynchronous Iterator
-    @aiter_compat
     def __aiter__(LIRCClient self not None):
         self._ensure_async()
-        return self
+        return aiter_compat(self)
 
     async def __anext__(LIRCClient self not None):
         while True:
