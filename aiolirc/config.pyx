@@ -2,7 +2,7 @@
 from libc.stdlib cimport calloc, free
 
 from aiolirc.constants import ENCODING
-from aiolirc.c_lirc_client cimport lirc_config, lirc_freeconfig, lirc_readconfig, lirc_code2char
+from aiolirc.c_lirc_client cimport lirc_freeconfig, lirc_readconfig, lirc_code2char
 from aiolirc.exceptions import LIRCLoadConfigError, TranslateError, TranslateDone, LIRCConfigInitError
 
 
