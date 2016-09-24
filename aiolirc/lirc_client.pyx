@@ -8,13 +8,15 @@ from aiolirc.compat import aiter_compat
 from aiolirc.exceptions import LIRCInitError, LIRCAbuseError, LIRCDeinitError, TranslateDone, LIRCNextCodeError, \
     LIRCLoadConfigError, TranslateError, LIRCConfigInitError
 from aiolirc.c_lirc_client cimport lirc_freeconfig, lirc_readconfig, lirc_code2char, lirc_init, lirc_deinit, \
-    lirc_nextcode
+    lirc_nextcode, lirc_config
 
-cdef unicode ENCODING = u"utf-8"
+cdef char * ENCODING = "utf-8"
 cdef int STRING_BUFFER_LEN = 256
 
 
 cdef class LIRCConfig:
+    cdef:
+        lirc_config * _c_lirc_config
 
     def __cinit__(self, config_filename):
         self.add_config_file(config_filename)
@@ -23,10 +25,12 @@ cdef class LIRCConfig:
         if self._c_lirc_config is not NULL:
             lirc_freeconfig(self._c_lirc_config)
 
-    def add_config_file(LIRCConfig self not None, config_filename):
-        if config_filename is not None:
+    cdef void add_config_file(LIRCConfig self, unicode config_filename):
+        b_config_filename = config_filename.encode(ENCODING)
+
+        if b_config_filename is not None:
             lirc_readconfig(
-                config_filename, &self._c_lirc_config, NULL)
+                b_config_filename, &self._c_lirc_config, NULL)
         else:
             lirc_readconfig(
                 NULL, &self._c_lirc_config, NULL)
@@ -58,10 +62,9 @@ cdef class LIRCConfig:
             free(string_buf_2)
             return string
 
-    def _ensure_init(LIRCConfig self not None):
+    cdef void _ensure_init(LIRCConfig self):
         if self._c_lirc_config is NULL:
             raise LIRCConfigInitError('%s has not been initialised.' % self.__name__)
-
 
 
 cdef object initialized = <bint>0
@@ -70,52 +73,33 @@ cdef LIRCConfig lircrc_config = None
 _locks = {}
 
 
-cdef class LIRCClient(object):
+cdef class LIRCClient:
+    cdef:
+        public unicode lircrc_file, lircrc_prog
+        public float _check_interval
+        public bint verbose, _blocking
+        public object _loop
+        int _lirc_socket
 
-    def __init__(self, lircrc_prog, *, lircrc_file='~/.config/lircrc',
+    def __cinit__(self, lircrc_prog, *, lircrc_file='~/.config/lircrc',
                  loop=None, check_interval=.05, verbose=False, blocking=False):
         self.lircrc_file = lircrc_file
         self.lircrc_prog = lircrc_prog
-        self.check_interval = check_interval
+        self._check_interval = check_interval
         self._loop = loop or asyncio.get_event_loop()
         self._lirc_socket = -2
         self._blocking = blocking
 
-    @property
-    def lock(LIRCClient self not None):
-        global _locks
-        if self.lircrc_prog not in _locks:
-            _locks[self.lircrc_prog] = asyncio.Lock()
-        return _locks[self.lircrc_prog]
-
-    @property
-    def blocking(LIRCClient self not None):
-        return self._blocking
-
-    @blocking.setter
-    def blocking(LIRCClient self not None, bint v):
-        if v is not self._blocking:
-            self._blocking = v
-            self.update_blocking()
-
-    cdef void load_config_file(LIRCClient self, unicode lircrc_file):
+    cpdef void load_config_file(LIRCClient self, unicode lircrc_file):
         global lircrc_config
         self._ensure_init()
 
-        b_lircrc_filename = lircrc_file.encode(ENCODING)
-
         if lircrc_config is not None:
-            lircrc_config.add_config_file(b_lircrc_filename)
+            lircrc_config.add_config_file(lircrc_file)
         else:
-            lircrc_config = LIRCConfig(b_lircrc_filename)
+            lircrc_config = LIRCConfig(lircrc_file)
 
-    cdef void update_blocking(LIRCClient self):
-        fcntl.fcntl(self._lirc_socket, fcntl.F_SETOWN, unistd.getpid())
-        flags = fcntl.fcntl(self._lirc_socket, fcntl.F_GETFL, 0)
-        flags = (flags & ~fcntl.O_NONBLOCK) | (0 if self._blocking else fcntl.O_NONBLOCK)
-        fcntl.fcntl(self._lirc_socket, fcntl.F_SETFL, flags)
-
-    cdef void lirc_init(LIRCClient self):
+    cpdef void lirc_init(LIRCClient self):
         global initialized
         if initialized:
             PyErr_WarnEx(UserWarning, "lirc is already initialized.", 1)
@@ -128,7 +112,11 @@ cdef class LIRCClient(object):
             raise LIRCInitError("Unable to initialize lirc (socket was -1 from C library).")
 
         # Configure blocking
-        self.update_blocking()
+        fcntl.fcntl(self._lirc_socket, fcntl.F_SETOWN, unistd.getpid())
+        flags = fcntl.fcntl(self._lirc_socket, fcntl.F_GETFL, 0)
+        flags = (flags & ~fcntl.O_NONBLOCK) | (0 if self._blocking else fcntl.O_NONBLOCK)
+        fcntl.fcntl(self._lirc_socket, fcntl.F_SETFL, flags)
+
 
         # Setting the initialization lock flag
         initialized = True
@@ -137,7 +125,7 @@ cdef class LIRCClient(object):
         if self.lircrc_file is not None:
             self.load_config_file(self.lircrc_file)
 
-    cdef void lirc_deinit(LIRCClient self):
+    cpdef void lirc_deinit(LIRCClient self):
         global initialized, lircrc_config
         if not initialized:
             PyErr_WarnEx(UserWarning, "lirc is not initialized yet.", 1)
@@ -149,7 +137,15 @@ cdef class LIRCClient(object):
         lircrc_config = None
         initialized = False
 
-    cdef unicode lirc_nextcode(LIRCClient self):
+    cpdef void lirc_ignore_nextcode(LIRCClient self):
+        cdef char * code = NULL
+        try:
+            if lirc_nextcode(&code) == -1:  # Error !
+                raise LIRCNextCodeError("There was an error reading the next code.")
+        finally:
+            free(code)
+
+    cpdef unicode lirc_nextcode(LIRCClient self):
         global lircrc_config
         cdef char * code = NULL
         try:
@@ -198,3 +194,46 @@ cdef class LIRCClient(object):
                 continue
             else:
                 return command
+
+    @property
+    def lock(LIRCClient self not None):
+        global _locks
+        if self.lircrc_prog not in _locks:
+            _locks[self.lircrc_prog] = asyncio.Lock()
+        return _locks[self.lircrc_prog]
+
+    @property
+    def blocking(LIRCClient self not None):
+        return self._blocking
+
+    @property
+    def check_interval(self):
+        return self._check_interval
+
+    def ignore(LIRCClient self not None):
+        return IgnoreContext(self)
+
+
+cdef class IgnoreContext:
+    cdef:
+        LIRCClient _source
+        object _future
+
+    def __cinit__(IgnoreContext self, LIRCClient source):
+        self._source = source
+
+    async def capture_and_ignore(IgnoreContext self not None):
+        while True:
+            self._source.lirc_ignore_nextcode()
+            await asyncio.sleep(self._source.check_interval)
+
+    # Asynchronous Context Manager
+    async def __aenter__(IgnoreContext self not None):
+        self._future = asyncio.ensure_future(self.capture_and_ignore())
+        return self
+
+    async def __aexit__(IgnoreContext self not None, exc_type, exc_val, exc_tb):
+        self._future.cancel()
+        await asyncio.wait([self._future])
+
+

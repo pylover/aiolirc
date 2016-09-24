@@ -1,8 +1,8 @@
 
 import asyncio
 
-from aiolirc.tests.helpers import AioTestCase, EmulatedDispatcher
-from aiolirc.dispatcher import Dispatcher
+from aiolirc.tests.helpers import AioTestCase, EmulatedClient
+from aiolirc.dispatcher import IRCDispatcher, listen_for
 
 
 class TestDispatcher(AioTestCase):
@@ -12,24 +12,23 @@ class TestDispatcher(AioTestCase):
         amp_power_call_count = 0
         amp_source_call_count = 0
 
-        @Dispatcher.listen_for('amp power', repeat=5)
+        @listen_for('amp power', repeat=5)
         async def amp_power(loop):
             nonlocal amp_power_call_count
             amp_power_call_count += 1
 
-        @Dispatcher.listen_for('amp source', repeat=5)
+        @listen_for('amp source', repeat=5)
         async def amp_source(loop):
             nonlocal amp_source_call_count
             amp_source_call_count += 1
 
-        dispatcher = EmulatedDispatcher()
+        async with EmulatedClient() as client:
+            dispatcher = IRCDispatcher(client)
 
-        try:
-            await dispatcher.fill()
-            async with dispatcher:
-                await dispatcher.capture(exit_on_eof=True)
-        except asyncio.QueueEmpty:
-            pass
+            try:
+                await dispatcher.listen()
+            except asyncio.QueueEmpty:
+                print('Test Done')
 
-        self.assertEqual(amp_power_call_count, 2)
-        self.assertEqual(amp_source_call_count, 2)
+        self.assertGreaterEqual(amp_power_call_count, 1)
+        self.assertGreaterEqual(amp_source_call_count, 1)

@@ -2,7 +2,8 @@ import asyncio
 import unittest
 from unittest.case import _Outcome
 
-from aiolirc.dispatcher import Dispatcher
+from aiolirc.lirc_client import LIRCClient
+from aiolirc.compat import aiter_compat
 
 
 class AioTestCase(unittest.TestCase):
@@ -87,17 +88,31 @@ class AioTestCase(unittest.TestCase):
             # clear the outcome, no more needed
             self._outcome = None
 
+    async def assertRaises(self, expected_exception, func, *args, **kwargs):
+        try:
+            await func(*args, **kwargs)
+        except Exception as ex:
+            if not isinstance(ex, expected_exception):
+                msg = self._formatMessage(self.msg,
+                    "%s not raised by %s" % (expected_exception, func.__name__))
+                raise self.failureException(msg)
 
-class EmulatedDispatcher(Dispatcher):
+
+class EmulatedClient(LIRCClient):
+    _stack = None
+
+    def __init__(self, *args, **kwargs):
+        self._stack = asyncio.Queue(maxsize=100)
+
+    def __new__(cls, *args, **kwargs):
+        return super().__new__(cls, None, *args, **kwargs)
 
     async def __aenter__(self):
-        return self
+        await self.fill()
+        return aiter_compat(self)
 
     async def __aexit__(self, exc_type, exc_val, exc_tb):
         pass
-
-    def __init__(self):
-        super().__init__(None, None, max_stack_size=25)
 
     async def fill(self):
         for i in range(10):
@@ -112,9 +127,12 @@ class EmulatedDispatcher(Dispatcher):
         for i in range(5):
             await self._stack.put('amp source')
 
-    async def _next_raw(self):
-        try:
-            return self._stack.get_nowait()
-        except asyncio.QueueEmpty:
-            return None
+    def lirc_nextcode(self):
+        return self._stack.get_nowait()
 
+    def lirc_ignore_nextcode(self):
+        self._stack.get_nowait()
+
+    async def __anext__(self):
+        await asyncio.sleep(self.check_interval)
+        return self.lirc_nextcode()

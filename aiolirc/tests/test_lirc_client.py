@@ -1,12 +1,13 @@
 
-from aiolirc.tests.helpers import AioTestCase, EmulatedDispatcher
+import asyncio
+
+from aiolirc.tests.helpers import AioTestCase, EmulatedClient
 
 
 class TestLIRCClient(AioTestCase):
 
     async def test_via_emulator(self):
-        async with EmulatedDispatcher() as client:
-            await client.fill()
+        async with EmulatedClient(check_interval=.01) as client:
             for i in range(10):
                 self.assertEqual(await client.__anext__(), 'amp power')
 
@@ -16,7 +17,12 @@ class TestLIRCClient(AioTestCase):
             for i in range(5):
                 self.assertEqual(await client.__anext__(), 'off')
 
-            for i in range(5):
+            for i in range(2):
                 self.assertEqual(await client.__anext__(), 'amp source')
 
-            self.assertEqual(await client.__anext__(), None)
+            async with client.ignore():
+                await asyncio.sleep(.1)
+
+            await self.assertRaises(asyncio.QueueEmpty, client.__anext__)
+
+

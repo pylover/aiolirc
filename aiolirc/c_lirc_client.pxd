@@ -3,9 +3,6 @@ cdef extern from "lirc/lirc_client.h":
     cdef struct lirc_config:
         pass
 
-    cdef struct lirc_code:
-        pass
-
     int lirc_init(char *prog, int verbose)
     int lirc_deinit()
 
