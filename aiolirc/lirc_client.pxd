@@ -13,7 +13,7 @@ cdef class LIRCClient(object):
         public float check_interval
         public bint verbose, _blocking
         public object _loop
-        public int _lirc_socket
+        int _lirc_socket
 
         void load_config_file(LIRCClient self, unicode lircrc_file)
         void update_blocking(LIRCClient self)

@@ -10,7 +10,6 @@ from aiolirc.exceptions import LIRCInitError, LIRCAbuseError, LIRCDeinitError, T
 from aiolirc.c_lirc_client cimport lirc_freeconfig, lirc_readconfig, lirc_code2char, lirc_init, lirc_deinit, \
     lirc_nextcode
 
-
 cdef unicode ENCODING = u"utf-8"
 cdef int STRING_BUFFER_LEN = 256
 
@@ -67,7 +66,8 @@ cdef class LIRCConfig:
 
 cdef object initialized = <bint>0
 cdef LIRCConfig lircrc_config = None
-cdef dict _locks = {}  # TODO: lock
+
+_locks = {}
 
 
 cdef class LIRCClient(object):
@@ -80,6 +80,13 @@ cdef class LIRCClient(object):
         self._loop = loop or asyncio.get_event_loop()
         self._lirc_socket = -2
         self._blocking = blocking
+
+    @property
+    def lock(LIRCClient self not None):
+        global _locks
+        if self.lircrc_prog not in _locks:
+            _locks[self.lircrc_prog] = asyncio.Lock()
+        return _locks[self.lircrc_prog]
 
     @property
     def blocking(LIRCClient self not None):
@@ -167,20 +174,16 @@ cdef class LIRCClient(object):
         if not initialized:
             raise LIRCInitError('%s has not been initialized.' % self.__name__)
 
-    # Lock
-    @property
-    def _lock(LIRCClient self not None):
-        key = (self.lircrc_prog, self)
-        return 
-
     # Asynchronous Context Manager
     async def __aenter__(LIRCClient self not None):
+        await self.lock
         self._ensure_async()
         self.lirc_init()
         return self
 
     async def __aexit__(LIRCClient self not None, exc_type, exc_val, exc_tb):
         self.lirc_deinit()
+        self.lock.release()
 
     # Asynchronous Iterator
     def __aiter__(LIRCClient self not None):
