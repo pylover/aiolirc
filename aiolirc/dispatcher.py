@@ -58,7 +58,7 @@ class IRCDispatcher(object):
 
             listeners = command.get(self._current_command_repetition)
             if listeners:
-                async with self._source.pause():
+                async with self._source.ignore():
                     # reset counter
                     self.reset_capturing_state()
                     await asyncio.gather(*[l(self._loop) for l in listeners])
