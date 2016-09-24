@@ -1,19 +1,72 @@
 import asyncio
 
-from libc.stdlib cimport free
+from libc.stdlib cimport calloc, free
 from posix cimport fcntl, unistd
 from cpython.exc cimport PyErr_WarnEx
 
-from aiolirc cimport c_lirc_client
 from aiolirc.compat import aiter_compat
-from aiolirc.constants import ENCODING
-from aiolirc.exceptions import LIRCInitError, LIRCAbuseError, LIRCDeinitError, TranslateDone, LIRCNextCodeError
-from aiolirc.lirc_client cimport LIRCConfig
+from aiolirc.exceptions import LIRCInitError, LIRCAbuseError, LIRCDeinitError, TranslateDone, LIRCNextCodeError, \
+    LIRCLoadConfigError, TranslateError, LIRCConfigInitError
+from aiolirc.c_lirc_client cimport lirc_freeconfig, lirc_readconfig, lirc_code2char, lirc_init, lirc_deinit, \
+    lirc_nextcode
+
+
+cdef unicode ENCODING = u"utf-8"
+cdef int STRING_BUFFER_LEN = 256
+
+
+cdef class LIRCConfig:
+
+    def __cinit__(self, config_filename):
+        self.add_config_file(config_filename)
+
+    def __dealloc__(self):
+        if self._c_lirc_config is not NULL:
+            lirc_freeconfig(self._c_lirc_config)
+
+    def add_config_file(LIRCConfig self not None, config_filename):
+        if config_filename is not None:
+            lirc_readconfig(
+                config_filename, &self._c_lirc_config, NULL)
+        else:
+            lirc_readconfig(
+                NULL, &self._c_lirc_config, NULL)
+
+        if self._c_lirc_config is NULL:
+            raise LIRCLoadConfigError('Could not load the config file (%s)' % config_filename)
+
+    cdef public unicode translate(LIRCConfig self, char * code):
+        """
+        Translate the (byte) string associated with the code in the lircrc config file
+        """
+        self._ensure_init()
+
+        cdef char * string_buf = \
+            <char * >calloc(STRING_BUFFER_LEN, sizeof(char))
+        cdef char * string_buf_2 = string_buf  # string_buf might be destroyed
+
+        status = lirc_code2char(self._c_lirc_config, code, &string_buf)
+
+        if status == -1:
+            free(string_buf)
+            raise TranslateError("There was an error determining the config string.")
+
+        if string_buf == NULL:
+            free(string_buf_2)
+            raise TranslateDone()
+        else:
+            string = string_buf.decode(ENCODING)
+            free(string_buf_2)
+            return string
+
+    def _ensure_init(LIRCConfig self not None):
+        if self._c_lirc_config is NULL:
+            raise LIRCConfigInitError('%s has not been initialised.' % self.__name__)
+
 
 
 cdef object initialized = <bint>0
 cdef LIRCConfig lircrc_config = None
-
 cdef dict _locks = {}  # TODO: lock
 
 
@@ -63,7 +116,7 @@ cdef class LIRCClient(object):
 
         # init lirc
         b_program_name = self.lircrc_prog.encode(ENCODING)
-        self._lirc_socket = c_lirc_client.lirc_init(b_program_name, self.verbose)
+        self._lirc_socket = lirc_init(b_program_name, self.verbose)
         if self._lirc_socket == -1:
             raise LIRCInitError("Unable to initialize lirc (socket was -1 from C library).")
 
@@ -83,7 +136,7 @@ cdef class LIRCClient(object):
             PyErr_WarnEx(UserWarning, "lirc is not initialized yet.", 1)
             return
 
-        if c_lirc_client.lirc_deinit() == -1:
+        if lirc_deinit() == -1:
             raise LIRCDeinitError("Unable to de-initialize lirc.")
 
         lircrc_config = None
@@ -93,7 +146,7 @@ cdef class LIRCClient(object):
         global lircrc_config
         cdef char * code = NULL
         try:
-            if c_lirc_client.lirc_nextcode(&code) == -1:  # Error !
+            if lirc_nextcode(&code) == -1:  # Error !
                 raise LIRCNextCodeError("There was an error reading the next code.")
 
             if code == NULL:
