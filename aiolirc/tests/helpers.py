@@ -3,7 +3,6 @@ import unittest
 from unittest.case import _Outcome
 
 from aiolirc.lirc_client import LIRCClient
-from aiolirc.compat import aiter_compat
 
 
 class AioTestCase(unittest.TestCase):
@@ -109,7 +108,7 @@ class EmulatedClient(LIRCClient):
 
     async def __aenter__(self):
         await self.fill()
-        return aiter_compat(self)
+        return self
 
     async def __aexit__(self, exc_type, exc_val, exc_tb):
         pass
