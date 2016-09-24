@@ -47,7 +47,7 @@ class IRCDispatcher(object):
             if not command:
                 warnings.warn('Unknown command: %s' % command_string)
                 self.reset_capturing_state()
-                return
+                continue
 
             if command_string != self._current_command_string:
                 # New command
