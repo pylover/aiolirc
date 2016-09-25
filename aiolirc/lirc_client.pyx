@@ -83,6 +83,17 @@ cdef class LIRCClient:
 
     def __cinit__(self, lircrc_prog, *, lircrc_file='~/.config/lircrc',
                  loop=None, check_interval=.05, verbose=False, blocking=False):
+        """
+        C initializer of the extension type.
+
+        :param lircrc_prog:
+        :param lircrc_file:
+        :param loop:
+        :param check_interval:
+        :param verbose:
+        :param blocking:
+        :return:
+        """
         self.lircrc_file = lircrc_file
         self.lircrc_prog = lircrc_prog
         self._check_interval = check_interval
@@ -91,6 +102,12 @@ cdef class LIRCClient:
         self._blocking = blocking
 
     cpdef void load_config_file(LIRCClient self, unicode lircrc_file):
+        """
+        Load a lircrc file
+
+        :param lircrc_file:
+        :return:
+        """
         global lircrc_config
         self._ensure_init()
 

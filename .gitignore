@@ -85,7 +85,13 @@ ENV/
 # Spyder project settings
 .spyderproject
 
-# Rope project settings
-.ropeproject
+# project specific
 .idea
 aiolirc/*.c
+sphinx/_build
+sphinx/_inv-cache
+docs/doctest
+docs/doctrees
+docs/html
+htmlcov
+_site

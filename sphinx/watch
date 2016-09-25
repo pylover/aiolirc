@@ -1,0 +1,12 @@
+#!/bin/bash
+
+make aiolirc.io
+
+while true
+do
+  inotifywait -r -e modify -e move -e create -e delete . ../aiolirc | while read line
+    do
+     make aiolirc.io
+    done
+done
+
