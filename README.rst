@@ -14,7 +14,7 @@ aiolirc
 Jump To
 -------
 
- * `Documentat ion <http://aiolirc.dobisel.com>`_
+ * `Documentation <http://aiolirc.dobisel.com>`_
  * `Python package index <https://pypi.python.org/pypi/aiolirc>`_
  * `Source on github <https://github.com/pylover/aiolirc>`_
  * `Downloads <https://pypi.python.org/pypi/aiolirc#downloads>`_
@@ -32,6 +32,15 @@ Happily, the Cython is working well with asyncio. So the `lirc_client` C extensi
 type. 
 
 In addition, an `IRCDispatcher` type and a `listen_for` decorator have been provided.
+
+Install
+-------
+
+::
+
+     $ apt-get install liblircclient-dev python3.5-dev build-essential
+     $ pip install cython
+     $ pip install aiolirc
 
 
 Quick Start
@@ -139,6 +148,66 @@ instances of the `LIRCClient` from reading messages from lirc_client wrapper::
         async for cmd in client:
             print(cmd)
         
+
+Systemd
+-------
+
+Create a main.py::
+
+     import sys
+     import asyncio
+     
+     from aiolirc import IRCDispatcher, LIRCClient
+
+     async def launch(self) -> int:
+
+         async with LIRCClient('my-prog', lircrc_file='path/to/lircrc', check_interval=.06) as client:
+             dispatcher = IRCDispatcher(client)
+             result = (await asyncio.gather(dispatcher.listen(), return_exceptions=True))[0]
+
+         if isinstance(result, Exception):
+             raise result
+             
+         return 0
+    
+     def main(self):
+          
+         main_loop = asyncio.get_event_loop()
+         try:
+             return main_loop.run_until_complete(launch())
+         except KeyboardInterrupt:
+             print('CTRL+C detected.')
+             return 1
+         finally:
+             if not main_loop.is_closed():
+                 main_loop.close()
+                 
+     if __name__ == '__main__':
+         sys.exit(main())
+
+
+`/etc/systemd/system/aiolirc.service` file::
+
+     [Unit]
+     Description=aiolirc
+     
+     [Service]
+     ExecStart=python3.5 /path/to/main.py
+     User=user
+     Group=group
+     
+     [Install]
+     WantedBy=multi-user.target
+     
+systemctl::
+
+     $ systemctl enable aiolirc
+     $ systemctl start aiolirc
+     $ systemctl restart aiolirc
+     
+     $ ps -Af | grep 'main.py'
+     
+     $ systemctl stop aiolirc
 
 Change Log
 ----------
