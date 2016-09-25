@@ -30,7 +30,7 @@ setup(
     author_email="vahid.mardani@gmail.com",
     url="http://aiolirc.dobisel.com",
     description="lirc python extension for asyncio",
-    zip_safe=True,
+    zip_safe=False,
     keywords="lirc asyncio extension",
     long_description=open('README.rst', encoding='utf-8').read(),
     license="GPLv3",
