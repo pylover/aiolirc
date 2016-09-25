@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>API Reference &#8212; aiolirc 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="aiolirc 0.1.0 documentation" href="index.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">aiolirc 0.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="lircclient">
+<h2>LIRCClient<a class="headerlink" href="#lircclient" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="aiolirc.lirc_client.LIRCClient">
+<em class="property">class </em><code class="descclassname">aiolirc.lirc_client.</code><code class="descname">LIRCClient</code><a class="headerlink" href="#aiolirc.lirc_client.LIRCClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="aiolirc.lirc_client.LIRCClient.__aenter__">
+<code class="descname">__aenter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#aiolirc.lirc_client.LIRCClient.__aenter__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="aiolirc.lirc_client.LIRCClient.__aexit__">
+<code class="descname">__aexit__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#aiolirc.lirc_client.LIRCClient.__aexit__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="aiolirc.lirc_client.LIRCClient.__aiter__">
+<code class="descname">__aiter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#aiolirc.lirc_client.LIRCClient.__aiter__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="aiolirc.lirc_client.LIRCClient.__anext__">
+<code class="descname">__anext__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#aiolirc.lirc_client.LIRCClient.__anext__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="aiolirc.lirc_client.LIRCClient.__new__">
+<code class="descname">__new__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#aiolirc.lirc_client.LIRCClient.__new__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create and return a new object.  See help(type) for accurate signature.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="aiolirc.lirc_client.LIRCClient.__pyx_vtable__">
+<code class="descname">__pyx_vtable__</code><em class="property"> = &lt;capsule object NULL&gt;</em><a class="headerlink" href="#aiolirc.lirc_client.LIRCClient.__pyx_vtable__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="aiolirc.lirc_client.LIRCClient._blocking">
+<code class="descname">_blocking</code><a class="headerlink" href="#aiolirc.lirc_client.LIRCClient._blocking" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="aiolirc.lirc_client.LIRCClient._check_interval">
+<code class="descname">_check_interval</code><a class="headerlink" href="#aiolirc.lirc_client.LIRCClient._check_interval" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="aiolirc.lirc_client.LIRCClient._ensure_async">
+<code class="descname">_ensure_async</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#aiolirc.lirc_client.LIRCClient._ensure_async" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="aiolirc.lirc_client.LIRCClient._ensure_init">
+<code class="descname">_ensure_init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#aiolirc.lirc_client.LIRCClient._ensure_init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="aiolirc.lirc_client.LIRCClient._loop">
+<code class="descname">_loop</code><a class="headerlink" href="#aiolirc.lirc_client.LIRCClient._loop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="aiolirc.lirc_client.LIRCClient.blocking">
+<code class="descname">blocking</code><a class="headerlink" href="#aiolirc.lirc_client.LIRCClient.blocking" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="aiolirc.lirc_client.LIRCClient.check_interval">
+<code class="descname">check_interval</code><a class="headerlink" href="#aiolirc.lirc_client.LIRCClient.check_interval" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="aiolirc.lirc_client.LIRCClient.ignore">
+<code class="descname">ignore</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#aiolirc.lirc_client.LIRCClient.ignore" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="aiolirc.lirc_client.LIRCClient.lirc_deinit">
+<code class="descname">lirc_deinit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#aiolirc.lirc_client.LIRCClient.lirc_deinit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="aiolirc.lirc_client.LIRCClient.lirc_ignore_nextcode">
+<code class="descname">lirc_ignore_nextcode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#aiolirc.lirc_client.LIRCClient.lirc_ignore_nextcode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="aiolirc.lirc_client.LIRCClient.lirc_init">
+<code class="descname">lirc_init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#aiolirc.lirc_client.LIRCClient.lirc_init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="aiolirc.lirc_client.LIRCClient.lirc_nextcode">
+<code class="descname">lirc_nextcode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#aiolirc.lirc_client.LIRCClient.lirc_nextcode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="aiolirc.lirc_client.LIRCClient.lircrc_file">
+<code class="descname">lircrc_file</code><a class="headerlink" href="#aiolirc.lirc_client.LIRCClient.lircrc_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="aiolirc.lirc_client.LIRCClient.lircrc_prog">
+<code class="descname">lircrc_prog</code><a class="headerlink" href="#aiolirc.lirc_client.LIRCClient.lircrc_prog" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="aiolirc.lirc_client.LIRCClient.load_config_file">
+<code class="descname">load_config_file</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#aiolirc.lirc_client.LIRCClient.load_config_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="aiolirc.lirc_client.LIRCClient.lock">
+<code class="descname">lock</code><a class="headerlink" href="#aiolirc.lirc_client.LIRCClient.lock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="aiolirc.lirc_client.LIRCClient.verbose">
+<code class="descname">verbose</code><a class="headerlink" href="#aiolirc.lirc_client.LIRCClient.verbose" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="ircdispatcher">
+<h2>IRCDispatcher<a class="headerlink" href="#ircdispatcher" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="aiolirc.dispatcher.IRCDispatcher">
+<em class="property">class </em><code class="descclassname">aiolirc.dispatcher.</code><code class="descname">IRCDispatcher</code><span class="sig-paren">(</span><em>source: aiolirc.lirc_client.LIRCClient</em>, <em>loop: asyncio.base_events.BaseEventLoop = None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiolirc/dispatcher.html#IRCDispatcher"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiolirc.dispatcher.IRCDispatcher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="aiolirc.dispatcher.IRCDispatcher.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>source: aiolirc.lirc_client.LIRCClient</em>, <em>loop: asyncio.base_events.BaseEventLoop = None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiolirc/dispatcher.html#IRCDispatcher.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiolirc.dispatcher.IRCDispatcher.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="aiolirc.dispatcher.IRCDispatcher.__module__">
+<code class="descname">__module__</code><em class="property"> = 'aiolirc.dispatcher'</em><a class="headerlink" href="#aiolirc.dispatcher.IRCDispatcher.__module__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="aiolirc.dispatcher.IRCDispatcher.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#aiolirc.dispatcher.IRCDispatcher.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="aiolirc.dispatcher.IRCDispatcher.listen">
+<code class="descname">listen</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="reference internal" href="_modules/aiolirc/dispatcher.html#IRCDispatcher.listen"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiolirc.dispatcher.IRCDispatcher.listen" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="aiolirc.dispatcher.IRCDispatcher.reset_capturing_state">
+<code class="descname">reset_capturing_state</code><span class="sig-paren">(</span><em>cmd=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiolirc/dispatcher.html#IRCDispatcher.reset_capturing_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiolirc.dispatcher.IRCDispatcher.reset_capturing_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">API Reference</a><ul>
+<li><a class="reference internal" href="#lircclient">LIRCClient</a></li>
+<li><a class="reference internal" href="#ircdispatcher">IRCDispatcher</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="installation.html"
+                        title="previous chapter">Installation</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/api.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">aiolirc 0.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015, Vahid Mardani.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+    </div>
+  </body>
+</html>

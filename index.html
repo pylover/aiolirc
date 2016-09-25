@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>aiolirc &#8212; aiolirc 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="aiolirc 0.1.0 documentation" href="#" />
+    <link rel="next" title="Installation" href="installation.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">aiolirc 0.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="aiolirc">
+<h1>aiolirc<a class="headerlink" href="#aiolirc" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="https://pypi.python.org/pypi/aiolirc"><img alt="http://img.shields.io/pypi/v/aiolirc.svg" src="http://img.shields.io/pypi/v/aiolirc.svg" /></a>
+<a class="reference external image-reference" href="https://coveralls.io/github/pylover/aiolirc?branch=master"><img alt="https://coveralls.io/repos/github/pylover/aiolirc/badge.svg?branch=master" src="https://coveralls.io/repos/github/pylover/aiolirc/badge.svg?branch=master" /></a>
+<a class="reference external image-reference" href="https://github.com/pylover/aiolirc/blob/master/LICENSE"><img alt="https://img.shields.io/badge/license-GPLv3-brightgreen.svg" src="https://img.shields.io/badge/license-GPLv3-brightgreen.svg" /></a>
+<div class="section" id="jump-to">
+<h2>Jump To<a class="headerlink" href="#jump-to" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://pypi.python.org/pypi/aiolirc">Python package index</a></li>
+<li><a class="reference external" href="https://github.com/pylover/aiolirc">Source on github</a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="contents">
+<h2>Contents:<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#from-pypi">From PyPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#from-source">From Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#from-github">From Github</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#lircclient">LIRCClient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#ircdispatcher">IRCDispatcher</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+<p>Asynchronous messaging using python&#8217;s new facility(async-await syntax), introduced in version 3.5 is so fun!</p>
+<p>So, I decided to provide an asynchronous context manager and iterator wrapper for
+<a class="reference external" href="http://www.lirc.org/">Linux Infra-Red Remote Control(LIRC)</a>.</p>
+<p>Happily, the Cython is working well with asyncio. So the <cite>lirc_client</cite> C extension has been made by cython&#8217;s extension
+type.</p>
+<p>In addition, an <code class="xref py py-class docutils literal"><span class="pre">aiolirc.IRCDispatcher</span></code> type and a <code class="xref py py-func docutils literal"><span class="pre">aiolirc.listen_for()</span></code> decorator have been provided.</p>
+</div>
+<div class="section" id="quick-start">
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h2>
+<p>The simplest way to use this library is the famous <code class="xref py py-func docutils literal"><span class="pre">aiolirc.very_quickstart()</span></code> function as follows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aiolirc</span> <span class="k">import</span> <span class="n">very_quickstart</span><span class="p">,</span> <span class="n">listen_for</span>
+
+<span class="nd">@listen_for</span><span class="p">(</span><span class="s1">&#39;play&#39;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">do_play</span><span class="p">(</span><span class="n">loop</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="c1"># Do play stuff</span>
+
+<span class="n">very_quickstart</span><span class="p">(</span><span class="s1">&#39;my-prog&#39;</span><span class="p">)</span>  <span class="c1"># my-prog is configured in your lircrc file.</span>
+</pre></div>
+</div>
+<p>Another coroutine function named <code class="xref py py-func docutils literal"><span class="pre">aiolirc.quickstart()</span></code> is also available.This lets you have control over the event loop
+life-cycle:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">from</span> <span class="nn">aiolirc</span> <span class="k">import</span> <span class="n">quickstart</span>
+
+<span class="n">main_loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">main_loop</span><span class="o">.</span><span class="n">run_until_complete</span><span class="p">(</span><span class="n">quickstart</span><span class="p">(</span><span class="n">loop</span><span class="o">=</span><span class="n">main_loop</span><span class="p">))</span>
+<span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;CTRL+C detected. terminating...&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">1</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">main_loop</span><span class="o">.</span><span class="n">is_closed</span><span class="p">():</span>
+        <span class="n">main_loop</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-aiolirc-ircdispatcher">
+<h2>The <code class="xref py py-class docutils literal"><span class="pre">aiolirc.IRCDispatcher</span></code><a class="headerlink" href="#the-aiolirc-ircdispatcher" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="constructor">
+<h3>Constructor<a class="headerlink" href="#constructor" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="n">LIRCClient</span><span class="p">,</span> <span class="n">loop</span><span class="p">:</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">BaseEventLoop</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-of-usage">
+<h3>Example of usage<a class="headerlink" href="#example-of-usage" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+
+<span class="kn">from</span> <span class="nn">aiolirc.lirc_client</span> <span class="k">import</span> <span class="n">LIRCClient</span>
+<span class="kn">from</span> <span class="nn">aiolirc.dispatcher</span> <span class="k">import</span> <span class="n">IRCDispatcher</span><span class="p">,</span> <span class="n">listen_for</span>
+
+<span class="nd">@listen_for</span><span class="p">(</span><span class="s1">&#39;amp power&#39;</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">amp_power</span><span class="p">(</span><span class="n">loop</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="c1"># Do your stuff</span>
+
+<span class="nd">@listen_for</span><span class="p">(</span><span class="s1">&#39;amp source&#39;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">amp_source</span><span class="p">(</span><span class="n">loop</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="c1"># Do your stuff</span>
+
+
+<span class="k">async</span> <span class="k">with</span> <span class="n">LIRCClient</span><span class="p">(</span><span class="s1">&#39;my-prog&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+    <span class="n">dispatcher</span> <span class="o">=</span> <span class="n">IRCDispatcher</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">dispatcher</span><span class="o">.</span><span class="n">listen</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="the-aiolirc-lircclient">
+<h2>The <code class="xref py py-class docutils literal"><span class="pre">aiolirc.LIRCClient</span></code><a class="headerlink" href="#the-aiolirc-lircclient" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Constructor<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">__cinit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lircrc_prog</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">lircrc_file</span><span class="o">=</span><span class="s1">&#39;~/.config/lircrc&#39;</span><span class="p">,</span> <span class="n">loop</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">check_interval</span><span class="o">=.</span><span class="mi">05</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">blocking</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+</pre></div>
+</div>
+<p>To advance control over the messages received from lirc, asychronously iter over an instance of the
+<code class="xref py py-class docutils literal"><span class="pre">aiolirc.LIRCClient</span></code> after calling <code class="xref py py-meth docutils literal"><span class="pre">aiolirc.LIRCClient.lirc_init()</span></code>. And make sure the
+<code class="xref py py-meth docutils literal"><span class="pre">aiolirc.LIRCClient.lirc_deinit()</span></code> has been called after finishing your work with <cite>LIRCClient</cite>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aiolirc.lirc_client</span> <span class="k">import</span> <span class="n">LIRCClient</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">LIRCClient</span><span class="p">(</span><span class="s1">&#39;my-prog&#39;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">lirc_init</span><span class="p">()</span>
+    <span class="k">async</span> <span class="k">for</span> <span class="n">cmd</span> <span class="ow">in</span> <span class="n">client</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">lirc_deinit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>You may use the <code class="xref py py-class docutils literal"><span class="pre">aiolirc.LIRCClient</span></code> as an asynchronous context manager as described as follows, to
+automatically call the <code class="xref py py-meth docutils literal"><span class="pre">aiolirc.LIRCClient.lirc_init()</span></code> and <code class="xref py py-meth docutils literal"><span class="pre">aiolirc.LIRCClient.lirc_deinit()</span></code>
+functions, and also acquiring a lock to prevent multiple instances of the <cite>LIRCClient</cite> from reading messages from
+<a class="reference external" href="http://www.lirc.org/html/lirc_client.html">lirc_client</a> cython wrapper:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aiolirc.lirc_client</span> <span class="k">import</span> <span class="n">LIRCClient</span>
+
+<span class="k">async</span> <span class="k">with</span> <span class="n">LIRCClient</span><span class="p">(</span><span class="s1">&#39;my-prog&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+    <span class="k">async</span> <span class="k">for</span> <span class="n">cmd</span> <span class="ow">in</span> <span class="n">client</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">aiolirc</a><ul>
+<li><a class="reference internal" href="#jump-to">Jump To</a></li>
+<li><a class="reference internal" href="#contents">Contents:</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+<li><a class="reference internal" href="#about">About</a></li>
+<li><a class="reference internal" href="#quick-start">Quick Start</a></li>
+<li><a class="reference internal" href="#the-aiolirc-ircdispatcher">The <code class="docutils literal"><span class="pre">aiolirc.IRCDispatcher</span></code></a><ul>
+<li><a class="reference internal" href="#constructor">Constructor</a></li>
+<li><a class="reference internal" href="#example-of-usage">Example of usage</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-aiolirc-lircclient">The <code class="docutils literal"><span class="pre">aiolirc.LIRCClient</span></code></a><ul>
+<li><a class="reference internal" href="#id1">Constructor</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="installation.html"
+                        title="next chapter">Installation</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">aiolirc 0.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015, Vahid Mardani.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+    </div>
+  </body>
+</html>

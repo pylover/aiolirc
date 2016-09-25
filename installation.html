@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installation &#8212; aiolirc 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="aiolirc 0.1.0 documentation" href="index.html" />
+    <link rel="next" title="API Reference" href="api.html" />
+    <link rel="prev" title="aiolirc" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="api.html" title="API Reference"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="aiolirc"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">aiolirc 0.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="debian">
+<h3>Debian<a class="headerlink" href="#debian" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> apt-get install build-essential python3.5-dev
+</pre></div>
+</div>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> pip install cython
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="from-pypi">
+<h2>From PyPI<a class="headerlink" href="#from-pypi" title="Permalink to this headline">¶</a></h2>
+<p>pip:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> pip install aiolirc
+</pre></div>
+</div>
+</div>
+<div class="section" id="from-source">
+<h2>From Source<a class="headerlink" href="#from-source" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> path/to/source/directory
+<span class="gp">$</span> pip install .
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> python setup.py install
+</pre></div>
+</div>
+<p>You may use the source folder in-place as a python library in <cite>sys.path</cite>, so you have to
+build the C extensions before using the library:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> path/to/source/directory
+<span class="gp">$</span> python setup.py build_ext --inplace
+</pre></div>
+</div>
+<p>Development, editable:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> path/to/source/directory
+<span class="gp">$</span> python setup.py build_ext --inplace
+<span class="gp">$</span> nosetests
+<span class="gp">$</span> pip install -e .
+</pre></div>
+</div>
+</div>
+<div class="section" id="from-github">
+<h2>From Github<a class="headerlink" href="#from-github" title="Permalink to this headline">¶</a></h2>
+<p>Latest development code:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> pip install git+https://github.com/pylover/aiolirc.git
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
+<li><a class="reference internal" href="#debian">Debian</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#from-pypi">From PyPI</a></li>
+<li><a class="reference internal" href="#from-source">From Source</a></li>
+<li><a class="reference internal" href="#from-github">From Github</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">aiolirc</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="api.html"
+                        title="next chapter">API Reference</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/installation.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="api.html" title="API Reference"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="aiolirc"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">aiolirc 0.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015, Vahid Mardani.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+    </div>
+  </body>
+</html>
