@@ -5,7 +5,7 @@ from aiolirc.lirc_client import LIRCClient
 from aiolirc.dispatcher import IRCDispatcher, listen, listen_for, remove
 
 
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 
 
 async def quickstart(*args, **kwargs):

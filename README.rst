@@ -7,9 +7,6 @@ aiolirc
 .. image:: http://img.shields.io/pypi/v/aiolirc.svg
      :target: https://pypi.python.org/pypi/aiolirc
 
-.. image:: https://coveralls.io/repos/github/pylover/aiolirc/badge.svg?branch=master
-     :target: https://coveralls.io/github/pylover/aiolirc?branch=master
-
 .. image:: https://img.shields.io/badge/license-GPLv3-brightgreen.svg
      :target: https://github.com/pylover/aiolirc/blob/master/LICENSE
 
