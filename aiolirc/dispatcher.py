@@ -2,6 +2,8 @@
 import asyncio
 import warnings
 
+from lirc import AsyncConnection
+
 from aiolirc.lirc_client import LIRCClient
 
 
@@ -33,9 +35,9 @@ def remove(func, cmd, *, repeat=1):
 
 class IRCDispatcher(object):
 
-    def __init__(self, source: LIRCClient, loop: asyncio.BaseEventLoop=None):
+    def __init__(self, connection: AsyncConnection, loop: asyncio.BaseEventLoop=None):
         # Instance attributes
-        self._source = source
+        self._source = connection
         self._loop = loop or asyncio.get_event_loop()
         self._current_command_string = None
         self._current_command_repetition = 0

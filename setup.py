@@ -1,9 +1,6 @@
 import re
 import os
-from setuptools import setup, find_packages, Extension
-
-from Cython.Build import cythonize
-
+from setuptools import setup, find_packages
 
 # reading pymlconf version (same way sqlalchemy does)
 with open(os.path.join(os.path.dirname(__file__), 'aiolirc', '__init__.py')) as v_file:
@@ -11,15 +8,7 @@ with open(os.path.join(os.path.dirname(__file__), 'aiolirc', '__init__.py')) as 
 
 
 dependencies = [
-    'cython',
-]
-
-libraries = [
-    'lirc_client',
-]
-
-extensions = [
-    Extension('aiolirc.lirc_client', ['aiolirc/lirc_client.pyx'], libraries=libraries),
+    'lirc'
 ]
 
 
@@ -29,14 +18,13 @@ setup(
     author="Vahid Mardani",
     author_email="vahid.mardani@gmail.com",
     url="http://aiolirc.dobisel.com",
-    description="lirc python extension for asyncio",
+    description="lirc async io python api",
     zip_safe=False,
-    keywords="lirc asyncio extension",
+    keywords="lirc asyncio api",
     long_description=open('README.rst', encoding='utf-8').read(),
     license="GPLv3",
     packages=find_packages(),
     install_requires=dependencies,
-    ext_modules=cythonize(extensions),
     classifiers=[
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
